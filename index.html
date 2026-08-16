@@ -7,37 +7,30 @@
 <style>
 :root{
   --bg:#0f172a;--panel:#1e293b;--card:#ffffff;
-  --border:#e2e8f0;
-  --text:#0f172a;--text-2:#475569;--text-3:#94a3b8;
+  --border:#e2e8f0;--text:#0f172a;--text-2:#475569;--text-3:#94a3b8;
   --accent:#0d9488;--accent-d:#0f766e;--accent-l:#ccfbf1;
-  --blue:#2563eb;--blue-l:#dbeafe;
-  --orange:#d97706;--orange-l:#fef3c7;
-  --red:#dc2626;--red-l:#fee2e2;
-  --green:#059669;--green-l:#d1fae5;
-  --purple:#7c3aed;--purple-l:#ede9fe;
-  --code:#0f172a;--code-t:#5eead4;
-  --radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 6px 16px rgba(0,0,0,.05);
+  --blue:#2563eb;--blue-l:#dbeafe;--orange:#d97706;--orange-l:#fef3c7;
+  --red:#dc2626;--red-l:#fee2e2;--green:#059669;--green-l:#d1fae5;
+  --purple:#7c3aed;--purple-l:#ede9fe;--cyan:#06b6d4;
+  --code:#0f172a;--code-t:#5eead4;--radius:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 6px 16px rgba(0,0,0,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text);line-height:1.7;font-size:14px}
 ::selection{background:var(--accent);color:#fff}
-
 .header{background:linear-gradient(120deg,#0f172a 0%,#134e4a 55%,#0d9488 100%);color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 18px rgba(13,148,136,.35)}
 .header-inner{max-width:1440px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .logo{width:44px;height:44px;background:rgba(255,255,255,.14);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.brand h1{font-size:17px;font-weight:700}
-.brand p{font-size:11px;opacity:.75;margin-top:2px}
+.brand h1{font-size:17px;font-weight:700}.brand p{font-size:11px;opacity:.75;margin-top:2px}
 .tabs{display:flex;gap:8px;background:rgba(255,255,255,.1);padding:5px;border-radius:12px}
 .tab-btn{border:none;background:transparent;color:#cbd5e1;padding:9px 18px;border-radius:9px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;transition:.2s;display:flex;align-items:center;gap:7px}
 .tab-btn.active{background:#fff;color:var(--accent-d);box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .tab-btn:hover:not(.active){color:#fff}
-
 .container{max-width:1440px;margin:0 auto;padding:20px;min-height:calc(100vh - 76px)}
 .view{display:none;grid-template-columns:300px 1fr;gap:20px;align-items:start}
 .view.active{display:grid}
 @media(max-width:960px){.view.active{grid-template-columns:1fr}}
-
 .sidebar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:sticky;top:86px;max-height:calc(100vh - 106px);display:flex;flex-direction:column}
 @media(max-width:960px){.sidebar{position:static;max-height:none}}
 .side-search{margin:12px;padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;font-family:inherit;font-size:12px;width:calc(100% - 24px)}
@@ -52,9 +45,11 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .si-title{font-size:12px;color:var(--text-2);font-weight:600}
 .side-item.active .si-title{color:var(--accent-d)}
 .side-item.wiz .si-cmd{background:var(--purple-l);color:var(--purple)}
-.side-item.wiz.active .si-cmd{background:var(--purple);color:#fff}
 .side-item.wiz.active{background:var(--purple-l);border-right-color:var(--purple)}
-
+.side-item.wiz.active .si-cmd{background:var(--purple);color:#fff}
+.side-item.guide .si-cmd{background:#cffafe;color:#0e7490}
+.side-item.guide.active{background:#cffafe;border-right-color:var(--cyan)}
+.side-item.guide.active .si-cmd{background:var(--cyan);color:#fff}
 .content{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;min-width:0}
 .spec-head{padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:20px}
 .spec-title{font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -62,7 +57,6 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .spec-desc{font-size:13px;color:var(--text-2);margin-top:8px}
 .pattern{margin-top:10px;font-size:12px;color:var(--text-2);background:#f8fafc;border:1px dashed var(--border);padding:8px 12px;border-radius:8px}
 .pattern code{font-family:'Consolas',monospace;direction:ltr;display:inline-block;color:var(--accent-d);font-weight:700}
-
 .fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:12px;font-weight:700;color:var(--text-2)}
@@ -71,7 +65,6 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .inp:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,148,136,.12)}
 .inp.ltr{direction:ltr;text-align:left;font-family:'Consolas',monospace}
 .hint{font-size:11px;color:var(--text-3);line-height:1.6}
-
 .output-wrap{margin-top:24px;background:var(--code);border-radius:14px;padding:20px;position:relative;overflow:hidden}
 .output-wrap::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,#0d9488,#5eead4)}
 .output-label{color:#94a3b8;font-size:12px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
@@ -83,24 +76,20 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .btn-copy:hover{background:var(--accent-d)}
 .btn-ghost{background:transparent;color:#94a3b8;border:1.5px solid rgba(255,255,255,.2);padding:10px 18px;border-radius:9px;cursor:pointer;font-family:inherit;font-size:13px;transition:.2s}
 .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-
-.examples{margin-top:22px}
-.ex-label{font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:10px}
+.examples{margin-top:22px}.ex-label{font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:10px}
 .ex-chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:'Consolas',monospace;font-size:12px;direction:ltr;background:#f1f5f9;border:1.5px solid var(--border);color:var(--text);padding:7px 14px;border-radius:20px;cursor:pointer;transition:.2s}
 .chip:hover{background:var(--accent-l);border-color:var(--accent);color:var(--accent-d)}
-
 .notes{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .note{border-radius:10px;padding:12px 15px;font-size:12px;line-height:1.8}
 .note.info{background:var(--blue-l);border-right:3px solid var(--blue);color:#1e3a8a}
 .note.warn{background:var(--orange-l);border-right:3px solid var(--orange);color:#78350f}
 .note.danger{background:var(--red-l);border-right:3px solid var(--red);color:#7f1d1d}
 .note.success{background:var(--green-l);border-right:3px solid var(--green);color:#064e3b}
-
-/* ===== WIZARD ===== */
 .wiz-header{background:linear-gradient(120deg,#4c1d95,#7c3aed);color:#fff;border-radius:14px;padding:20px;margin-bottom:20px}
+.wiz-header.guide{background:linear-gradient(120deg,#0e7490,#06b6d4)}
 .wiz-title{font-size:19px;font-weight:700;display:flex;align-items:center;gap:10px}
-.wiz-desc{font-size:13px;opacity:.85;margin-top:6px}
+.wiz-desc{font-size:13px;opacity:.9;margin-top:6px;line-height:1.8}
 .wiz-modes{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .mode-chip{border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;padding:7px 14px;border-radius:20px;cursor:pointer;font-family:inherit;font-size:12px;transition:.2s}
 .mode-chip:hover{background:rgba(255,255,255,.15)}
@@ -110,7 +99,7 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .wiz-fill{height:100%;background:#5eead4;border-radius:6px;transition:width .3s}
 .wiz-step-label{font-size:12px;font-weight:700;white-space:nowrap}
 .wiz-steps-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.step-dot{border:1.5px solid var(--border);background:#fff;color:var(--text-2);width:auto;min-width:34px;padding:6px 10px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:12px;font-weight:700;transition:.2s}
+.step-dot{border:1.5px solid var(--border);background:#fff;color:var(--text-2);min-width:34px;padding:6px 10px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:12px;font-weight:700;transition:.2s}
 .step-dot:hover{border-color:var(--purple);color:var(--purple)}
 .step-dot.active{background:var(--purple);color:#fff;border-color:var(--purple)}
 .step-dot.done{background:var(--green-l);color:var(--green);border-color:var(--green)}
@@ -127,8 +116,33 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 .btn-next{background:var(--purple);color:#fff}
 .btn-next:hover{background:#6d28d9}
 .btn-next:disabled{background:#cbd5e1;cursor:not-allowed}
-.pax-card{border:1.5px dashed var(--border);border-radius:12px;padding:16px;margin-top:14px;position:relative}
+.pax-card{border:1.5px dashed var(--border);border-radius:12px;padding:16px;margin-top:14px}
 .pax-card-title{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:12px}
+/* ===== GUIDES ===== */
+.guide-sample{background:var(--code);border-radius:14px;padding:20px;margin:18px 0;overflow-x:auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.g-line{font-family:'Consolas',monospace;font-size:15px;color:#e2e8f0;direction:ltr;text-align:left;white-space:pre;padding:6px 0;line-height:1.9}
+.g-tok{color:#5eead4;cursor:pointer;padding:2px 5px;border-radius:6px;transition:.15s;font-weight:700}
+.g-tok:hover{background:rgba(94,234,212,.18)}
+.g-tok.sel{background:#0d9488;color:#fff;box-shadow:0 0 0 2px rgba(13,148,136,.4)}
+.g-plain{color:#94a3b8}
+.g-hint{font-size:12px;color:var(--text-3);text-align:center;margin:10px 0 14px}
+.g-detail{background:#ecfeff;border:1.5px solid #a5f3fc;border-radius:12px;padding:18px;min-height:80px}
+.g-detail-empty{color:var(--text-3);font-size:13px;text-align:center;padding:14px}
+.g-detail-title{font-size:15px;font-weight:700;color:#0e7490;margin-bottom:6px}
+.g-detail-desc{font-size:13px;color:var(--text-2);line-height:1.9}
+.g-gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:18px}
+.g-gloss-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:.15s}
+.g-gloss-item:hover{border-color:var(--cyan)}
+.g-gloss-item.active{border-color:#0e7490;background:#ecfeff}
+.g-gloss-label{font-size:13px;font-weight:700;color:#0e7490}
+.g-gloss-desc{font-size:11px;color:var(--text-3);margin-top:4px;line-height:1.7}
+.guide-table-wrap{margin-top:18px;background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden}
+.g-table-title{padding:14px 18px;font-size:14px;background:#f1f5f9;border-bottom:1.5px solid var(--border);font-weight:700}
+.g-table{width:100%;border-collapse:collapse;font-size:13px}
+.g-table th{background:#f8fafc;padding:10px 14px;text-align:right;font-size:12px;color:var(--text-2);border-bottom:1.5px solid var(--border)}
+.g-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2)}
+.g-table tr:last-child td{border-bottom:none}
+.g-table td.mono{font-family:'Consolas',monospace;direction:ltr;text-align:left;color:var(--accent-d);font-weight:700;white-space:nowrap}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--code);color:#5eead4;padding:12px 26px;border-radius:12px;font-size:13px;font-family:'Consolas',monospace;direction:ltr;transition:transform .3s;z-index:999;box-shadow:0 12px 30px rgba(0,0,0,.35)}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .hidden{display:none!important}
@@ -141,10 +155,7 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
   <div class="header-inner">
     <div class="brand">
       <div class="logo">✈️</div>
-      <div>
-        <h1>Nira Command Builder</h1>
-        <p>سازنده دستورات ترمینال و وب‌سرویس سامانه رزرواسیون نیرا</p>
-      </div>
+      <div><h1>Nira Command Builder</h1><p>سازنده دستورات ترمینال و وب‌سرویس سامانه رزرواسیون نیرا</p></div>
     </div>
     <div class="tabs">
       <button class="tab-btn active" id="tabTerm" onclick="switchView('term')">⌨️ ترمینال نیرا</button>
@@ -174,10 +185,9 @@ body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var
 
 <script>
 'use strict';
-/* ---------- helpers ---------- */
-var GREG_MONTHS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function P(v,d){return (v&&String(v).trim())?String(v).trim():d;}
+var GREG_MONTHS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 function gregFromDateInput(v){if(!v)return'';var p=v.split('-');var d=parseInt(p[2],10);var m=GREG_MONTHS[parseInt(p[1],10)-1];return (d<10?'0':'')+d+m;}
 function copyText(t){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(function(){fallbackCopy(t);});}else{fallbackCopy(t);}}
 function fallbackCopy(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
@@ -186,85 +196,246 @@ function outputBlock(outId,copyId,multi){
   var h='<div class="output-wrap" style="margin-top:16px"><div class="output-label">📟 دستور تولید شده:</div>';
   if(multi){h+='<div class="output-box"><pre class="cmd-text cmd-multi" id="'+outId+'"></pre></div>';}
   else{h+='<div class="output-box"><span class="cmd-text" id="'+outId+'"></span></div>';}
-  h+='<div class="output-actions"><button class="btn-copy" id="'+copyId+'">📋 کپی</button></div></div>';
-  return h;
+  h+='<div class="output-actions"><button class="btn-copy" id="'+copyId+'">📋 کپی</button></div></div>';return h;
 }
 function wireCopy(copyId,outId){
-  document.getElementById(copyId).addEventListener('click',function(){
-    copyText(document.getElementById(outId).textContent);showToast('کپی شد');
-    var s=this;s.textContent='✅ کپی شد';setTimeout(function(){s.textContent='📋 کپی';},1500);
-  });
+  document.getElementById(copyId).addEventListener('click',function(){copyText(document.getElementById(outId).textContent);showToast('کپی شد');var s=this;s.textContent='✅ کپی شد';setTimeout(function(){s.textContent='📋 کپی';},1500);});
 }
 
-/* ---------- AIRLINE BASE URLS ---------- */
-var WS1={EP:'https://restapi.iaa.ir/ws1',FP:'https://api.flypersiaairlines.ir/ws1',HH:'https://api.taban.aero/ws1',IV:'https://api.caspianairlines.com/ws1',I3:'https://api.ataair.ir/ws1',IRZ:'https://api.sahaair.com/ws1',J1:'https://apps.merajairlines.ir/ws1',NV:'https://api.karunair.ir/ws1',PA:'https://api.parsair.ir/ws1',PY:'https://api.pouyaair.com/ws1',QB:'https://api.qeshm-air.com/ws1',VR:'https://api.vareshair.ir/ws1',Y9:'https://api.kishairlines.ir/ws1',ZV:'https://api.zagrosairlines.com/ws1',A1:'http://a1.nirasoft.ir/ws1',DZD:'https://api.yazdairways.com/ws1',IRU:'https://api.chabaharairlines.ir/ws1',A7:'https://api.asajet.ir/ws1',RAI:'https://api.raimonairways.com/ws1',ATS:'https://api.atlasairplus.com/ws1',TKN:'https://api.flykishiran.com/ws1',NSN:'https://api.nasimairlines.ir/ws1',ISP:'https://nrs.jskyair.com/ws1',MEH:'https://api.mehrairways.com/ws1',MBL:'https://nrs.ladairways.ir/ws1',SHR:'https://nrs.soroushair.com/ws1'};
-var WS2={EP:'https://restapi.iaa.ir/ws2/cgi-bin/NRSWeb.cgi',FP:'https://api.flypersiaairlines.ir/ws2/cgi-bin/NRSWEB.cgi',HH:'https://api.taban.aero/ws2/cgi-bin/NRSWebWS.cgi',IV:'https://api.caspianairlines.com/ws2/cgi-bin/NRSWeb.cgi',I3:'https://api.ataair.ir/ws2/cgi-bin/NRSWeb.cgi',IRZ:'https://api.sahaair.com/ws2/cgi-bin/NRSWeb.cgi',J1:'https://apps.merajairlines.ir/ws2/cgi-bin/NRSWeb.cgi',NV:'https://api.karunair.ir/ws2/cgi-bin/NRSWEB.cgi',PA:'https://api.parsair.ir/ws2/cgi-bin/NRSWeb.cgi',PY:'https://api.pouyaair.com/ws2/cgi-bin/NRSWEB.cgi',QB:'https://api.qeshm-air.com/ws2/cgi-bin/NRSWeb.cgi',VR:'https://api.vareshair.ir/ws2/cgi-bin/NRSWebWS.cgi',Y9:'https://api.kishairlines.ir/ws2/cgi-bin/NRSWEB.cgi',ZV:'https://api.zagrosairlines.com/ws2/cgi-bin/NRSWeb.cgi',A1:'http://a1.nirasoft.ir/ws2/cgi-bin/NRSWeb.cgi',DZD:'https://api.yazdairways.com/ws2/cgi-bin/NRSWeb.cgi',IRU:'https://api.chabaharairlines.ir/ws2/cgi-bin/NRSWeb.cgi',A7:'https://api.asajet.ir/ws2/cgi-bin/NRSWeb.cgi',RAI:'https://api.raimonairways.com/ws2/cgi-bin/NRSWeb.cgi',ATS:'https://api.atlasairplus.com/ws2/cgi-bin/NRSWeb.cgi',TKN:'https://api.flykishiran.com/ws2/cgi-bin/NRSWeb.cgi',NSN:'https://api.nasimairlines.ir/ws2/cgi-bin/NRSWeb.cgi',ISP:'https://nrs.jskyair.com/ws2/cgi-bin/NRSWeb.cgi',MEH:'https://api.mehrairways.com/ws2/cgi-bin',LMB:'https://nrs.ladairways.ir/ws2/cgi-bin/NRSWeb.cgi',SHR:'https://nrs.soroushair.com/ws2/cgi-bin/NRSWeb.cgi'};
+/* ================= READ-OUTPUT GUIDES ================= */
+var GUIDES=[
+ {id:'g_avail',title:'خواندن خروجی جستجوی پرواز (AY)',icon:'🔍',type:'anatomy',
+  intro:'وقتی دستور AY یا AV می‌زنید، لیست پروازها به شکل زیر نمایش داده می‌شود. روی هر بخش رنگی کلیک کنید تا بدانید چیست.',
+  lines:[{parts:[
+    {t:'1',k:'line'},{t:'  '},{t:'YY',k:'al'},{t:'  '},{t:'1012',k:'fn'},{t:' '},
+    {t:'LA',k:'cls'},{t:' '},{t:'DA',k:'cls'},{t:' '},{t:'YA',k:'cls'},{t:'  '},
+    {t:'WE',k:'day'},{t:'06JUL',k:'date'},{t:' '},{t:'KIHTHR',k:'route'},{t:' '},
+    {t:'2000',k:'dep'},{t:'  '},{t:'2100',k:'arr'},{t:'  '},{t:'310  0  D',k:'extra'}
+  ]}],
+  glossary:{
+    line:{label:'شماره خط',desc:'شماره خط پرواز در لیست نتایج. برای انتخاب همین پرواز از این شماره در دستور SD استفاده می‌کنید. مثلاً SD1Y3 یعنی خط ۱، کلاس Y، ۳ مسافر.'},
+    al:{label:'کد ایرلاین',desc:'کد دو حرفی شرکت هواپیمایی. برای دیدن نام ایرلاین از کد، دستور DX:A/YY را بزنید.'},
+    fn:{label:'شماره پرواز',desc:'شماره پرواز. این شماره در خروجی RT، بلیط و لیست‌های ML هم تکرار می‌شود.'},
+    cls:{label:'کلاس + وضعیت ظرفیت',desc:'هر جفت‌حرف یک کلاس پروازی است. حرف اول = کلاس (Y، D، L و...)، حرف دوم = وضعیت ظرفیت. مهم‌ترین حالت‌ها: A = بیش از ۹ صندلی خالی | عدد ۱ تا ۹ = تعداد دقیق صندلی | C = ظرفیت تکمیل | X یا L = کلاس بسته/کنسل. پس YA یعنی کلاس Y با بیش از ۹ صندلی آزاد.'},
+    day:{label:'روز هفته',desc:'مخفف روز هفته میلادی: MO دوشنبه، TU سه‌شنبه، WE چهارشنبه، TH پنجشنبه، FR جمعه، SA شنبه، SU یکشنبه.'},
+    date:{label:'تاریخ پرواز',desc:'تاریخ به فرمت روز + ماه میلادی. مثلاً 06JUL یعنی ۶ ژوئیه.'},
+    route:{label:'مسیر پرواز',desc:'کد مبدا و مقصد پشت سر هم. KIHTHR یعنی کیش به تهران. کدها را با DX:C می‌توانید ببینید.'},
+    dep:{label:'ساعت حرکت',desc:'ساعت حرکت به فرمت ۲۴ ساعته. 2000 یعنی ۲۰:۰۰.'},
+    arr:{label:'ساعت ورود',desc:'ساعت رسیدن به مقصد به فرمت ۲۴ ساعته.'},
+    extra:{label:'اطلاعات تکمیلی',desc:'ستون‌های پایانی شامل مدت پرواز (دقیقه)، تعداد توقف (0 = بدون توقف) و کدهای تکمیلی دیگر است.'}
+  }},
+ {id:'g_pnr',title:'خواندن PNR (خروجی RT)',icon:'📄',type:'anatomy',
+  intro:'بعد از دستور RT، ساختار PNR به شکل زیر نمایش داده می‌شود. هر خط یک بخش از رزرو است. روی هر خط کلیک کنید.',
+  lines:[
+    {parts:[{t:'RP/THR001',k:'rp'}]},
+    {parts:[{t:' 1  VOSOGH/AMIR MR',k:'pax'}]},
+    {parts:[{t:' 2  YY 1012 Y  WE06JUL KIHTHR HK1 2000 2100',k:'seg'}]},
+    {parts:[{t:' 3  AP CTM/09123456789',k:'ap'}]},
+    {parts:[{t:' 4  TK TL1330/19AUG/THR001',k:'tk'}]},
+    {parts:[{t:' 5  SSR DOCS HK1 YY HK1/I//0080100008//09SHA65/M////P1',k:'ssr'}]},
+    {parts:[{t:' 6  RMK TEST',k:'rmk'}]},
+    {parts:[{t:' 7  PNR  ABC123',k:'pnr'}]}
+  ],
+  glossary:{
+    rp:{label:'دفتر صادرکننده (RP)',desc:'کد آفیس/آژانسی که رزرو را ایجاد یا صادر کرده. با RP/ می‌توانید آژانس صادرکننده را تغییر دهید.'},
+    pax:{label:'خط مسافر',desc:'شماره و مشخصات مسافر: نام خانوادگی / نام + عنوان. عنوان‌ها: MR آقا، MRS خانم متأهل، MS خانم، MISS دوشیزه، CHD کودک. اگر چند مسافر با یک فامیل باشند، همه در یک خط با / جدا می‌شوند.'},
+    seg:{label:'خط سگمنت پرواز',desc:'جزئیات پرواز رزروشده: ایرلاین + شماره پرواز + کلاس + روز و تاریخ + مسیر + وضعیت رزرو و تعداد + ساعت حرکت و ورود. مثلاً HK1 یعنی «تأییدشده برای ۱ مسافر».'},
+    ap:{label:'اطلاعات تماس (AP)',desc:'راه‌های تماس مسافر. CTM موبایل، CTE ایمیل، CTP تلفن ثابت، CTB شماره کاری. حداقل یکی الزامی است.'},
+    tk:{label:'مهلت صدور (TK)',desc:'Time Limit یا مهلت صدور بلیط. تا این تاریخ/ساعت باید بلیط صادر شود، وگرنه رزرو خودکار باطل می‌شود. فرمت: TK TL{ساعت}/{تاریخ}/{آفیس}.'},
+    ssr:{label:'اطلاعات هویتی (SSR)',desc:'کد ملی یا پاسپورت مسافر. برای مسافر ایرانی I//کدملی//تاریخ تولد/جنسیت و برای پاسپورت P/... است. این خط برای صدور بلیط الزامی است.'},
+    rmk:{label:'توضیحات (RMK)',desc:'پیام‌ها و توضیحات روی PNR که با RMK اضافه می‌شوند. برای هماهنگی بین واحدها کاربرد دارد.'},
+    pnr:{label:'کد رزرو (PNR)',desc:'کد یکتای رزرو. این کد را برای RT، ETK، استرداد و هر عملیات بعدی روی این رزرو استفاده می‌کنید.'}
+  }},
+ {id:'g_ticket',title:'خواندن بلیط (خروجی ETR)',icon:'🎫',type:'anatomy',
+  intro:'بعد از RTETA و سپس ETR، بلیط الکترونیکی به شکل زیر نمایش داده می‌شود. روی هر خط کلیک کنید.',
+  lines:[
+    {parts:[{t:' 1  YY 1012 Y  WE06JUL KIHTHR HK1 2000 2100',k:'seg'}]},
+    {parts:[{t:'    ETKT 0002442030661  TEST/TEST MR   I',k:'tktno'}]},
+    {parts:[{t:'    FARE 6867000   TAX  V0 619000  HL 69000  LP 70000  I6 30000',k:'fare'}]},
+    {parts:[{t:'    TOTAL 7655000   COMM 950670',k:'total'}]}
+  ],
+  glossary:{
+    seg:{label:'سگمنت پرواز',desc:'مشخصات پرواز بلیط‌شده: ایرلاین، شماره پرواز، کلاس، تاریخ، مسیر، وضعیت و ساعت‌ها.'},
+    tktno:{label:'شماره بلیط + وضعیت',desc:'ETKT = شماره بلیط الکترونیکی. سپس نام مسافر و در انتها یک حرف «وضعیت بلیط» است. مهم‌ترین‌ها: I = باز و قابل استفاده، F = پرواز انجام‌شده، V = باطل‌شده، R = استردادشده، E = تغییر یافته. جدول کامل وضعیت‌ها را در راهنمای «جدول وضعیت‌ها» ببینید.'},
+    fare:{label:'نرخ پایه و مالیات‌ها',desc:'FARE = نرخ پایه بلیط بدون مالیات. TAX = تفکیک مالیات‌ها: V0 ارزش افزوده، HL هلال‌احمر، LP عوارض فرودگاه، I6 نظارت ایمنی مسافر.'},
+    total:{label:'جمع کل و کمیسیون',desc:'TOTAL = مبلغ نهایی بلیط (نرخ پایه + مالیات‌ها). COMM = کمیسیون آژانس.'}
+  }},
+ {id:'g_status',title:'جدول وضعیت‌های رزرو و بلیط',icon:'🔤',type:'ref',
+  intro:'این کدها را در خروجی RT و ETR زیاد می‌بینید. دانستن معنی آن‌ها برای تشخیص وضعیت رزرو/بلیط ضروری است.',
+  tables:[
+    {title:'وضعیت‌های رزرو (در خط سگمنت PNR)',head:['کد','معنی','توضیح'],rows:[
+      ['HK','تأییدشده','رزرو قطعی و تأییدشده (Hold Confirmed)'],
+      ['KK','تأییدشده','پاسخ تأیید به درخواست رزرو'],
+      ['HL','لیست انتظار','رزرو در انتظار تأیید (خروجی دستور LL)'],
+      ['LL','درخواست انتظار','رزرو به صورت لیست انتظار ثبت شد'],
+      ['ON','درخواست کلاس بسته','درخواست صندلی روی کلاس بسته، نیازمند تأیید کنترل'],
+      ['SA','رزرو فرودگاه','رزرو از طریق فرودگاه'],
+      ['TK','تغییر برنامه','پرواز تغییر ساعت/تاریخ داشته (TK-UN)'],
+      ['UN','کنسل‌شده','پرواز یا سگمنت کنسل شده است'],
+      ['UC','تأییدنشده','درخواست توسط کنترل رد شده'],
+      ['DL','حذف‌شده','سگمنت حذف‌شده از PNR']
+    ]},
+    {title:'وضعیت‌های بلیط (حرف انتهای خط ETKT)',head:['کد','معنی انگلیسی','توضیح'],rows:[
+      ['I','Open for use','باز و قابل استفاده (حالت عادی بلیط صادرشده)'],
+      ['C','Checked-in','پذیرش مسافر انجام شده'],
+      ['L','Boarded','مسافر سوار هواپیما شده'],
+      ['F','Flown','پرواز انجام شده و مسافر رسیده'],
+      ['Z','Closed','بسته و غیرقابل استفاده'],
+      ['S','Suspended','تعلیق‌شده / غیرقابل استفاده موقت'],
+      ['V','Voided','باطل‌شده (بلیط VOID)'],
+      ['R','Refunded','استرداد شده'],
+      ['E','Exchanged','تغییر تاریخ/کلاس انجام شده']
+    ]}
+  ]},
+ {id:'g_codes',title:'کدهای مالیات و زمان',icon:'🧾',type:'ref',
+  intro:'کدهای مالیات در خروجی FSP، FSU و بلیط دیده می‌شوند. کدهای زمان هم در تمام تاریخ‌های ترمینال کاربرد دارند.',
+  tables:[
+    {title:'کدهای مالیات و عوارض (TAX)',head:['کد','نام','توضیح'],rows:[
+      ['V0','VAT','مالیات بر ارزش افزوده'],
+      ['HL','Helal Ahmar','سهم هلال احمر'],
+      ['LP','Airport Tax','سهم ثابت فرودگاه (عوارض فرودگاهی)'],
+      ['I6','Safety Oversight','نظارت بر ایمنی مسافر']
+    ]},
+    {title:'کدهای روز هفته',head:['کد','روز'],rows:[
+      ['MO','دوشنبه'],['TU','سه‌شنبه'],['WE','چهارشنبه'],['TH','پنجشنبه'],['FR','جمعه'],['SA','شنبه'],['SU','یکشنبه']
+    ]},
+    {title:'ماه‌های میلادی',head:['کد','ماه'],rows:[
+      ['JAN','ژانویه'],['FEB','فوریه'],['MAR','مارس'],['APR','آوریل'],['MAY','مه'],['JUN','ژوئن'],['JUL','ژوئیه'],['AUG','اوت'],['SEP','سپتامبر'],['OCT','اکتبر'],['NOV','نوامبر'],['DEC','دسامبر']
+    ]},
+    {title:'ماه‌های شمسی (برای تاریخ شمسی)',head:['کد','ماه'],rows:[
+      ['FAR','فروردین'],['ORD','اردیبهشت'],['KHR','خرداد'],['TIR','تیر'],['MOR','مرداد'],['SHA','شهریور'],['MEH','مهر'],['ABA','آبان'],['AZA','آذر'],['DEY','دی'],['BAH','بهمن'],['ESN','اسفند']
+    ]}
+  ]},
+ {id:'g_errors',title:'پیام‌های خطای رایج',icon:'⚠️',type:'ref',
+  intro:'اگر هنگام اجرا با این پیام‌ها مواجه شدید، معنی و راه‌حل آن‌ها را اینجا ببینید.',
+  tables:[
+    {title:'خطاهای رایج ترمینال و وب‌سرویس',head:['پیام خطا','معنی فارسی','راه‌حل'],rows:[
+      ['FLIGHT CLOSED','پرواز بسته است','پرواز دیگر قابل رزرو نیست، پرواز دیگری انتخاب کنید'],
+      ['NOT ENOUGH CREDIT','اعتبار کافی نیست','اعتبار حساب کم است، با واحد مالی ایرلاین هماهنگ کنید'],
+      ['CLASS CLOSED','کلاس پروازی بسته است','کلاس دیگری انتخاب کنید یا با SD/ON درخواست دهید'],
+      ['INVALID FLIGHT','پرواز معتبر نیست','شماره پرواز یا مسیر اشتباه وارد شده'],
+      ['SSR DOCS IS MANDATORY','کد ملی الزامی است','برای همه مسافران SSR کد ملی وارد کنید'],
+      ['INVALID DOCS NUMBER','شماره ملی نامعتبر است','کد ملی واردشده اشتباه است'],
+      ['DUPLICATE NATIONAL CODES','کد ملی تکراری است','کد ملی تکراری وارد شده، بررسی کنید'],
+      ['INVALID PASPORT INFO','اطلاعات پاسپورت اشتباه است','اطلاعات پاسپورت را کنترل کنید'],
+      ['Access Denied','دسترسی مجاز نیست','نام کاربری/رمز یا سطح دسترسی را بررسی کنید'],
+      ['User Account expired','حساب کاربری منقضی شده','با ایرلاین برای تمدید حساب تماس بگیرید'],
+      ['PNR is already Ticketed','بلیط قبلاً صادر شده','برای این رزرو قبلاً بلیط صادر شده است'],
+      ['PNR Is Cancelled','PNR کنسل شده','این رزرو قبلاً کنسل شده است'],
+      ['Already Cancelled','قبلاً کنسل شده','سنرفر قبلاً باطل شده است'],
+      ['Invalid Passenger Name','نام مسافر نامعتبر است','نام مسافر را اصلاح کنید'],
+      ['Invalid Ticket Number','شماره بلیط نامعتبر است','شماره بلیط را کنترل کنید'],
+      ['Child/Infant without parents','کودک بدون همراه','هر بزرگسال حداکثر می‌تواند همراه ۴ کودک باشد'],
+      ['REMOTE USER NOT REGISTERED','حساب کاربری مشکل دارد','با ایرلاین مربوطه تماس بگیرید'],
+      ['INCORRECT RETURN FARE','مبالغ استرداد اشتباه است','مبالغ واردشده در استرداد را کنترل کنید']
+    ]}
+  ]}
+];
 
-/* ============================================================
-   TERMINAL COMMANDS DATA
-============================================================ */
+function renderGuide(g){
+  var area=document.getElementById('areaTerm');
+  var h='<div class="wiz-header guide"><div class="wiz-title">'+g.icon+' '+esc(g.title)+'</div>';
+  h+='<div class="wiz-desc">'+esc(g.intro||'')+'</div></div>';
+  if(g.type==='anatomy'){
+    h+='<div class="guide-sample">';
+    g.lines.forEach(function(line){
+      h+='<div class="g-line">';
+      line.parts.forEach(function(p){
+        if(p.k){h+='<span class="g-tok" data-k="'+p.k+'">'+esc(p.t)+'</span>';}
+        else{h+='<span class="g-plain">'+esc(p.t)+'</span>';}
+      });
+      h+='</div>';
+    });
+    h+='</div><div class="g-hint">💡 روی هر بخش رنگی کلیک کنید تا توضیح آن را ببینید</div>';
+    h+='<div class="g-detail" id="gDetail"><div class="g-detail-empty">یک بخش را از خروجی نمونه بالا انتخاب کنید</div></div>';
+    h+='<div class="g-gloss">';
+    for(var k in g.glossary){
+      var it=g.glossary[k];
+      h+='<div class="g-gloss-item" data-k="'+k+'"><div class="g-gloss-label">'+esc(it.label)+'</div><div class="g-gloss-desc">'+esc(it.desc)+'</div></div>';
+    }
+    h+='</div>';
+  }else{
+    g.tables.forEach(function(tb){
+      h+='<div class="guide-table-wrap"><div class="g-table-title">'+esc(tb.title)+'</div>';
+      h+='<table class="g-table"><thead><tr>';
+      tb.head.forEach(function(x){h+='<th>'+esc(x)+'</th>';});
+      h+='</tr></thead><tbody>';
+      tb.rows.forEach(function(r){
+        h+='<tr>';r.forEach(function(c,i){h+='<td'+(i===0?' class="mono"':'')+'>'+esc(c)+'</td>';});
+        h+='</tr>';
+      });
+      h+='</tbody></table></div>';
+    });
+  }
+  area.innerHTML=h;
+  if(g.type==='anatomy'){
+    area.querySelectorAll('.g-tok').forEach(function(t){
+      t.addEventListener('click',function(){
+        var k=this.getAttribute('data-k');var it=g.glossary[k];if(!it)return;
+        area.querySelectorAll('.g-tok').forEach(function(x){x.classList.remove('sel');});
+        this.classList.add('sel');
+        document.getElementById('gDetail').innerHTML='<div class="g-detail-title">'+esc(it.label)+'</div><div class="g-detail-desc">'+esc(it.desc)+'</div>';
+        area.querySelectorAll('.g-gloss-item').forEach(function(x){x.classList.toggle('active',x.getAttribute('data-k')===k);});
+      });
+    });
+    area.querySelectorAll('.g-gloss-item').forEach(function(x){
+      x.addEventListener('click',function(){
+        var k=this.getAttribute('data-k');var tok=area.querySelector('.g-tok[data-k="'+k+'"]');
+        if(tok){tok.click();tok.scrollIntoView({behavior:'smooth',block:'center'});}
+      });
+    });
+  }
+  if(window.innerWidth<960){area.scrollIntoView({behavior:'smooth'});}
+}
+function selectGuide(id){
+  for(var i=0;i<GUIDES.length;i++){if(GUIDES[i].id===id){renderGuide(GUIDES[i]);break;}}
+  clearTermActive();
+  var b=document.querySelector('.side-item[data-guide="'+id+'"]');
+  if(b)b.classList.add('active');
+}
+
+/* ================= TERMINAL COMMANDS ================= */
 var TERMINAL=[
 {name:'جستجو و دسترسی',icon:'🔍',items:[
  {id:'ay',title:'Availability پرواز',cmdLabel:'AY / AV',icon:'🔍',desc:'مشاهده ظرفیت و کلاس‌های پرواز در یک مسیر و تاریخ مشخص.',pattern:'AY{مبدا}{مقصد}/{تاریخ}',
-  fields:[
-   {k:'cmd',label:'نوع دستور',type:'select',opts:['AY','AV'],hint:'AY فقط ایرلاین سایِن‌شده، AV چند ایرلاین'},
-   {k:'src',label:'کد شهر مبدا',ph:'KIH',ltr:true},
-   {k:'dst',label:'کد شهر مقصد',ph:'THR',ltr:true},
-   {k:'date',label:'تاریخ',ph:'28AUG یا 07SHA یا . یا +',ltr:true,dateHelper:true,hint:'میلادی: 28AUG | شمسی: 07SHA | نسبی: . امروز، + فردا، - دیروز'}
-  ],
+  fields:[{k:'cmd',label:'نوع دستور',type:'select',opts:['AY','AV']},{k:'src',label:'کد شهر مبدا',ph:'KIH',ltr:true},{k:'dst',label:'کد شهر مقصد',ph:'THR',ltr:true},{k:'date',label:'تاریخ',ph:'28AUG یا 07SHA یا .',ltr:true,dateHelper:true,hint:'میلادی: 28AUG | شمسی: 07SHA | نسبی: . امروز، + فردا، - دیروز'}],
   build:function(v){return P(v.cmd,'AY')+P(v.src,'[مبدا]')+P(v.dst,'[مقصد]')+'/'+P(v.date,'[تاریخ]');},
   examples:['AYKIHTHR/28AUG','AYKIHTHR/07SHA','AYKIHTHR/.','AYKIHTHR/+','AVKIHTHR/28AUG','AY:RA2'],
-  notes:[{t:'info',x:'AY فقط پروازهای ایرلاین سایِن‌شده، AV پروازهای چند ایرلاین را نشان می‌دهد.'},{t:'info',x:'برای پرواز رفت‌وبرگشت از AY:RA{n} استفاده کنید.'}]},
+  notes:[{t:'info',x:'AY فقط پروازهای ایرلاین سایِن‌شده، AV پروازهای چند ایرلاین را نشان می‌دهد.'}]},
  {id:'sk',title:'برنامه پروازی مسیر',cmdLabel:'SK',icon:'📅',desc:'مشاهده برنامه پروازی یک ایرلاین در مسیر مشخص.',pattern:'SK:{مبدا}{مقصد}/{تاریخ}',
   fields:[{k:'src',label:'مبدا',ph:'THR',ltr:true},{k:'dst',label:'مقصد',ph:'KIH',ltr:true},{k:'date',label:'تاریخ',ph:'05SHA',ltr:true,dateHelper:true}],
   build:function(v){return 'SK:'+P(v.src,'[مبدا]')+P(v.dst,'[مقصد]')+'/'+P(v.date,'[تاریخ]');},examples:['SK:THRKIH/05SHA'],notes:[]},
- {id:'scall',title:'تمام پروازها از مبدا و مقصد',cmdLabel:'SCALL',icon:'📅',desc:'مشاهده تمامی پروازها از هر مبدا و مقصد در یک تاریخ.',pattern:'SCALL/{تاریخ}',
-  fields:[{k:'date',label:'تاریخ',ph:'17AUG',ltr:true,dateHelper:true}],
-  build:function(v){return 'SCALL/'+P(v.date,'[تاریخ]');},examples:['SCALL/17AUG'],notes:[]},
+ {id:'scall',title:'تمام پروازها از مبدا و مقصد',cmdLabel:'SCALL',icon:'📅',desc:'مشاهده تمامی پروازها از هر مبدا و مقصد.',pattern:'SCALL/{تاریخ}',
+  fields:[{k:'date',label:'تاریخ',ph:'17AUG',ltr:true,dateHelper:true}],build:function(v){return 'SCALL/'+P(v.date,'[تاریخ]');},examples:['SCALL/17AUG'],notes:[]},
  {id:'mlr',title:'لیست مسافران خط پرواز',cmdLabel:'ML/R',icon:'👥',desc:'مشاهده لیست مسافران یک خط پرواز از نتیجه Availability.',pattern:'ML/R{شماره خط}',
-  fields:[{k:'line',label:'شماره خط',ph:'1',ltr:true}],build:function(v){return 'ML/R'+P(v.line,'[خط]');},examples:['ML/R1'],notes:[]},
- {id:'tcc',title:'اختلاف ساعت کشورها',cmdLabel:'TCC',icon:'🕐',desc:'اختلاف ساعت بین دو نقطه (پرواز خارجی).',pattern:'TCC:{مبدا}{مقصد}',
-  fields:[{k:'src',label:'مبدا',ph:'IST',ltr:true},{k:'dst',label:'مقصد',ph:'THR',ltr:true}],build:function(v){return 'TCC:'+P(v.src,'[مبدا]')+P(v.dst,'[مقصد]');},examples:['TCC:ISTTHR'],notes:[]}
+  fields:[{k:'line',label:'شماره خط',ph:'1',ltr:true}],build:function(v){return 'ML/R'+P(v.line,'[خط]');},examples:['ML/R1'],notes:[]}
 ]},
 {name:'انتخاب و رزرو',icon:'🪑',items:[
- {id:'sd',title:'انتخاب سگمنت و رزرو',cmdLabel:'SD',icon:'🪑',desc:'انتخاب خط پرواز، کلاس و تعداد مسافر با نوع رزرو.',pattern:'SD{خط}{کلاس}[/{نوع}]{تعداد}',
-  fields:[
-   {k:'line',label:'شماره خط',ph:'1',ltr:true},
-   {k:'cls',label:'کلاس پروازی',ph:'Y',ltr:true},
-   {k:'stype',label:'نوع رزرو',type:'select',opts:[{v:'',l:'عادی (SD1Y3)'},{v:'KK',l:'KK - قطعی'},{v:'SA',l:'SA - فرودگاه'},{v:'LL',l:'LL - انتظار (HL)'},{v:'ON',l:'ON - کلاس بسته'}]},
-   {k:'pax',label:'تعداد مسافر',ph:'3',ltr:true}
-  ],
+ {id:'sd',title:'انتخاب سگمنت و رزرو',cmdLabel:'SD',icon:'🪑',desc:'انتخاب خط پرواز، کلاس و تعداد مسافر.',pattern:'SD{خط}{کلاس}[/{نوع}]{تعداد}',
+  fields:[{k:'line',label:'شماره خط',ph:'1',ltr:true},{k:'cls',label:'کلاس پروازی',ph:'Y',ltr:true},{k:'stype',label:'نوع رزرو',type:'select',opts:[{v:'',l:'عادی (SD1Y3)'},{v:'KK',l:'KK - قطعی'},{v:'SA',l:'SA - فرودگاه'},{v:'LL',l:'LL - انتظار'},{v:'ON',l:'ON - کلاس بسته'}]},{k:'pax',label:'تعداد مسافر',ph:'3',ltr:true}],
   build:function(v){var s='SD'+P(v.line,'[خط]')+P(v.cls,'[کلاس]');if(v.stype){s+='/'+v.stype;}s+=P(v.pax,'[تعداد]');return s;},
-  examples:['SD1Y3','SD1Y/KK3','SD1Y/SA3','SD1Y/LL3','SD1Y/ON3'],
-  notes:[{t:'info',x:'KK قطعی | SA فرودگاه | LL لیست انتظار | ON کلاس بسته.'},{t:'warn',x:'در LL یا ON صدور منوط به تایید مرکز کنترل است.'}]},
+  examples:['SD1Y3','SD1Y/KK3','SD1Y/SA3','SD1Y/LL3','SD1Y/ON3'],notes:[]},
  {id:'ss',title:'رزرو مستقیم پرواز',cmdLabel:'SS',icon:'🎯',desc:'رزرو مستقیم یک پرواز مشخص بدون Availability.',pattern:'SS{پرواز}{کلاس}{تاریخ}{مبدا}{مقصد}/{نوع}{تعداد}',
   fields:[{k:'fn',label:'شماره پرواز',ph:'YY1012',ltr:true},{k:'cls',label:'کلاس',ph:'Y',ltr:true},{k:'date',label:'تاریخ',ph:'18AUG',ltr:true,dateHelper:true},{k:'src',label:'مبدا',ph:'KIH',ltr:true},{k:'dst',label:'مقصد',ph:'THR',ltr:true},{k:'type',label:'نوع',type:'select',opts:['KK','SA','LL','ON']},{k:'pax',label:'تعداد',ph:'1',ltr:true}],
   build:function(v){return 'SS'+P(v.fn,'[پرواز]')+P(v.cls,'[کلاس]')+P(v.date,'[تاریخ]')+P(v.src,'[مبدا]')+P(v.dst,'[مقصد]')+'/'+P(v.type,'KK')+P(v.pax,'[تعداد]');},
   examples:['SSYY1012Y18AUGKIHTHR/KK1'],notes:[]},
- {id:'confirm',title:'تایید / عدم تایید درخواست',cmdLabel:'nKK / nUC',icon:'✅',desc:'تایید (KK) یا رد (UC) درخواست‌های LL یا ON توسط ایرلاین/کنترل.',pattern:'{شماره خط}{KK|UC}',
+ {id:'confirm',title:'تایید / عدم تایید درخواست',cmdLabel:'nKK / nUC',icon:'✅',desc:'تایید (KK) یا رد (UC) درخواست‌های LL یا ON.',pattern:'{شماره خط}{KK|UC}',
   fields:[{k:'line',label:'شماره خط',ph:'2',ltr:true},{k:'act',label:'عملیات',type:'select',opts:[{v:'KK',l:'KK - تایید'},{v:'UC',l:'UC - عدم تایید'}]}],
   build:function(v){return P(v.line,'[خط]')+P(v.act,'KK');},examples:['2KK','2UC'],notes:[{t:'warn',x:'مخصوص ایرلاین یا مسئول کنترل پرواز.'}]}
 ]},
 {name:'اطلاعات مسافر',icon:'👤',items:[
- {id:'nm',title:'ورود نام مسافر',cmdLabel:'NM',icon:'👤',desc:'ورود نام خانوادگی و نام مسافر همراه با عنوان.',pattern:'NM{فامیل}/{نام} {عنوان}',
-  fields:[{k:'last',label:'نام خانوادگی',ph:'VOSOGH',ltr:true},{k:'first',label:'نام',ph:'AMIR',ltr:true},{k:'title',label:'عنوان',type:'select',opts:[{v:'',l:'— بدون —'},{v:'MR',l:'MR (آقا)'},{v:'MRS',l:'MRS (خانم)'},{v:'MS',l:'MS'},{v:'MISS',l:'MISS'},{v:'CHD',l:'CHD (کودک)'}]}],
-  build:function(v){return 'NM'+P(v.last,'[فامیل]')+'/'+P(v.first,'[نام]')+(v.title?' '+v.title:'');},
-  examples:['NMVosogh/Amir MR','NMVOSOGH/SARA.CHD'],notes:[]},
+ {id:'nm',title:'ورود نام مسافر',cmdLabel:'NM',icon:'👤',desc:'ورود نام خانوادگی و نام مسافر با عنوان.',pattern:'NM{فامیل}/{نام} {عنوان}',
+  fields:[{k:'last',label:'نام خانوادگی',ph:'VOSOGH',ltr:true},{k:'first',label:'نام',ph:'AMIR',ltr:true},{k:'title',label:'عنوان',type:'select',opts:[{v:'',l:'— بدون —'},{v:'MR',l:'MR'},{v:'MRS',l:'MRS'},{v:'MS',l:'MS'},{v:'MISS',l:'MISS'},{v:'CHD',l:'CHD'}]}],
+  build:function(v){return 'NM'+P(v.last,'[فامیل]')+'/'+P(v.first,'[نام]')+(v.title?' '+v.title:'');},examples:['NMVosogh/Amir MR'],notes:[]},
  {id:'nmmulti',title:'چند مسافر هم‌نام خانوادگی',cmdLabel:'NM',icon:'👨‍👩‍👧',desc:'ورود چند مسافر با نام خانوادگی مشابه.',pattern:'NM{تعداد}{فامیل}/{نام1}/{نام2}',
-  fields:[{k:'count',label:'تعداد',ph:'3',ltr:true},{k:'last',label:'نام خانوادگی',ph:'Vosogh',ltr:true},{k:'names',label:'نام‌ها (با / جدا کنید)',ph:'Amir MR/Reza MR/Fatemeh MRS',ltr:true}],
-  build:function(v){return 'NM'+P(v.count,'[تعداد]')+P(v.last,'[فامیل]')+'/'+P(v.names,'[نام‌ها]');},
-  examples:['NM3Vosogh/Amir MR/Reza MR/Fatemeh MRS'],notes:[]},
- {id:'contact',title:'ورود Contact مسافر',cmdLabel:'CT',icon:'📞',desc:'ورود اطلاعات تماس مسافر. حداقل یکی الزامی است.',pattern:'CT{M|E|P|B}/{مقدار}',
+  fields:[{k:'count',label:'تعداد',ph:'3',ltr:true},{k:'last',label:'نام خانوادگی',ph:'Vosogh',ltr:true},{k:'names',label:'نام‌ها',ph:'Amir MR/Reza MR',ltr:true}],
+  build:function(v){return 'NM'+P(v.count,'[تعداد]')+P(v.last,'[فامیل]')+'/'+P(v.names,'[نام‌ها]');},examples:['NM3Vosogh/Amir MR/Reza MR/Fatemeh MRS'],notes:[]},
+ {id:'contact',title:'ورود Contact مسافر',cmdLabel:'CT',icon:'📞',desc:'ورود اطلاعات تماس مسافر.',pattern:'CT{M|E|P|B}/{مقدار}',
   fields:[{k:'ct',label:'نوع',type:'select',opts:[{v:'CTM',l:'CTM - موبایل'},{v:'CTE',l:'CTE - ایمیل'},{v:'CTP',l:'CTP - تلفن'},{v:'CTB',l:'CTB - شماره کاری'}]},{k:'val',label:'مقدار',ph:'09120000000',ltr:true}],
-  build:function(v){return P(v.ct,'CTM')+'/'+P(v.val,'[مقدار]');},examples:['CTM/09123456789','CTE/test@mail.com'],notes:[]},
- {id:'osi',title:'ارتباط دو PNR',cmdLabel:'OSI:TCP',icon:'🔗',desc:'مرتبط کردن دو PNR که مسافران با هم سفر می‌کنند.',pattern:'OSI:TCP.{PNR دوم}/{P مسافر}',
-  fields:[{k:'pnr2',label:'PNR دوم',ph:'VOSOGH/NAND1',ltr:true},{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],
-  build:function(v){return 'OSI:TCP.'+P(v.pnr2,'[PNR دوم]')+'/P'+P(v.pax,'[مسافر]');},examples:['OSI:TCP.VOSOGH/NAND1/P1'],notes:[]},
- {id:'sp',title:'جدا کردن مسافر از PNR',cmdLabel:'SP',icon:'✂️',desc:'جدا کردن یک مسافر از PNR چندمسافره.',pattern:'SP{شماره مسافر}',
-  fields:[{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],build:function(v){return 'SP'+P(v.pax,'[مسافر]');},examples:['SP1'],notes:[]}
+  build:function(v){return P(v.ct,'CTM')+'/'+P(v.val,'[مقدار]');},examples:['CTM/09123456789','CTE/test@mail.com'],notes:[]}
 ]},
 {name:'کدهای SSR',icon:'🪪',items:[
- {id:'docsid',title:'SSR کد ملی (بزرگسال)',cmdLabel:'SSR DOCS',icon:'🪪',desc:'ورود کد ملی و تاریخ تولد مسافر ایرانی.',pattern:'SSR:ALL DOCS HK1/I//{کدملی}//{تولد}/{جنسیت}////P{مسافر}',
+ {id:'docsid',title:'SSR کد ملی',cmdLabel:'SSR DOCS',icon:'🪪',desc:'ورود کد ملی و تاریخ تولد مسافر ایرانی.',pattern:'SSR:ALL DOCS HK1/I//{کدملی}//{تولد}/{جنسیت}////P{مسافر}',
   fields:[{k:'nc',label:'کد ملی',ph:'0080100008',ltr:true},{k:'bd',label:'تاریخ تولد',ph:'09SHA65',ltr:true},{k:'gender',label:'جنسیت',type:'select',opts:[{v:'M',l:'M - مذکر'},{v:'F',l:'F - مونث'}]},{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],
   build:function(v){return 'SSR:ALL DOCS HK1/I//'+P(v.nc,'[کدملی]')+'//'+P(v.bd,'[تولد]')+'/'+P(v.gender,'M')+'////P'+P(v.pax,'[مسافر]');},
   examples:['SSR:ALL DOCS HK1/I//0080100008//09SHA65/M////P1'],notes:[]},
@@ -281,609 +452,323 @@ var TERMINAL=[
  {id:'wchr',title:'SSR ویلچر',cmdLabel:'SSR WCH',icon:'♿',desc:'ثبت خدمات ویژه ویلچر.',pattern:'SSR:ALL {WCHR|WCHC|WCHS} HK1/P{مسافر}',
   fields:[{k:'wt',label:'نوع',type:'select',opts:[{v:'WCHR',l:'WCHR - رمپ'},{v:'WCHC',l:'WCHC - تا صندلی'},{v:'WCHS',l:'WCHS - پله‌ها'}]},{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],
   build:function(v){return 'SSR:ALL '+P(v.wt,'WCHR')+' HK1/P'+P(v.pax,'[مسافر]');},examples:['SSR:ALL WCHR HK1/P1'],notes:[]},
- {id:'umnr',title:'SSR مسافر بدون همراه (UMNR)',cmdLabel:'SSR UMNR',icon:'🧒',desc:'ثبت کودک بدون همراه.',pattern:'SSR:ALL UMNR HK1.{توضیحات}/P{مسافر}',
-  fields:[{k:'txt',label:'توضیحات (نام + تماس مقصد)',ph:'SARA SADEGHI 09120000000',ltr:true},{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],
-  build:function(v){return 'SSR:ALL UMNR HK1.'+P(v.txt,'[توضیحات]')+'/P'+P(v.pax,'[مسافر]');},
-  examples:['SSR:ALL UMNR HK1.SARA SADEGHI 09120000000/P1'],notes:[]},
- {id:'exst',title:'SSR صندلی اضافه (EXST)',cmdLabel:'SSR EXST',icon:'🪑',desc:'صدور صندلی اضافه برای مسافر.',pattern:'SSR: EXST NN1.{متن}/P{مسافر}',
+ {id:'umnr',title:'SSR کودک بدون همراه',cmdLabel:'SSR UMNR',icon:'🧒',desc:'ثبت کودک بدون همراه.',pattern:'SSR:ALL UMNR HK1.{توضیحات}/P{مسافر}',
+  fields:[{k:'txt',label:'توضیحات',ph:'SARA SADEGHI 09120000000',ltr:true},{k:'pax',label:'شماره مسافر',ph:'1',ltr:true}],
+  build:function(v){return 'SSR:ALL UMNR HK1.'+P(v.txt,'[توضیحات]')+'/P'+P(v.pax,'[مسافر]');},examples:['SSR:ALL UMNR HK1.SARA SADEGHI 09120000000/P1'],notes:[]},
+ {id:'exst',title:'SSR صندلی اضافه',cmdLabel:'SSR EXST',icon:'🪑',desc:'صدور صندلی اضافه برای مسافر.',pattern:'SSR: EXST NN1.{متن}/P{مسافر}',
   fields:[{k:'txt',label:'متن',ph:'OverSize',ltr:true},{k:'pax',label:'شماره مسافر',ph:'2',ltr:true}],
-  build:function(v){return 'SSR: EXST NN1.'+P(v.txt,'[متن]')+'/P'+P(v.pax,'[مسافر]');},examples:['SSR: EXST NN1.OverSize/P2'],notes:[]},
- {id:'segchld',title:'CHLD برای سگمنت خاص',cmdLabel:'SSR{n}CHLD',icon:'🧒',desc:'ثبت کودک فقط برای یک سگمنت خاص.',pattern:'SSR{خط}CHLD HK1/P{مسافر}',
-  fields:[{k:'line',label:'شماره خط پرواز',ph:'5',ltr:true},{k:'pax',label:'شماره مسافر',ph:'2',ltr:true}],
-  build:function(v){return 'SSR'+P(v.line,'[خط]')+'CHLD HK1/P'+P(v.pax,'[مسافر]');},examples:['SSR5CHLD HK1/P2'],notes:[]},
- {id:'seginft',title:'INFT برای سگمنت خاص',cmdLabel:'SSR{n}INFT',icon:'👶',desc:'ثبت نوزاد فقط برای یک سگمنت خاص.',pattern:'SSR{خط}INFT HK1.{فامیل}/{نام} {تولد}/P{مسافر}',
-  fields:[{k:'line',label:'شماره خط پرواز',ph:'4',ltr:true},{k:'last',label:'نام خانوادگی',ph:'VOSOGH',ltr:true},{k:'first',label:'نام',ph:'FATEMEH',ltr:true},{k:'bd',label:'تولد',ph:'05JUN23',ltr:true},{k:'pax',label:'مسافر همراه',ph:'1',ltr:true}],
-  build:function(v){return 'SSR'+P(v.line,'[خط]')+'INFT HK1.'+P(v.last,'[فامیل]')+'/'+P(v.first,'[نام]')+' '+P(v.bd,'[تولد]')+'/P'+P(v.pax,'[مسافر]');},
-  examples:['SSR4INFT HK1.VOSOGH/FATEMEH 05JUN23/P1'],notes:[]}
+  build:function(v){return 'SSR: EXST NN1.'+P(v.txt,'[متن]')+'/P'+P(v.pax,'[مسافر]');},examples:['SSR: EXST NN1.OverSize/P2'],notes:[]}
 ]},
 {name:'نرخ و قیمت',icon:'💰',items:[
- {id:'fqt',title:'مشاهده نرخ کل در رزرو',cmdLabel:'FQT',icon:'💰',desc:'مشاهده قیمت کل هر مسافر پس از ورود SSR ها.',pattern:'FQT',fields:[],build:function(){return 'FQT';},examples:['FQT'],notes:[]},
- {id:'fsp',title:'قیمت کل مسیر (FSP)',cmdLabel:'FSP',icon:'💰',desc:'مشاهده قیمت کل مسیر شامل Fare و مالیات‌ها.',pattern:'FSP{مسیر}[#RCH|#RIN][/{تاریخ}]',
-  fields:[{k:'route',label:'مسیر',ph:'KIHTHR یا THRKIHTHR',ltr:true},{k:'pax',label:'نوع مسافر',type:'select',opts:[{v:'',l:'عادی'},{v:'#RCH',l:'کودک (#RCH)'},{v:'#RIN',l:'نوزاد (#RIN)'}]},{k:'date',label:'تاریخ (اختیاری)',ph:'28AUG21',ltr:true}],
-  build:function(v){return 'FSP'+P(v.route,'[مسیر]')+(v.pax||'')+(v.date?'/'+v.date:'');},
-  examples:['FSPKIHTHR','FSPTHRKIHTHR','FSPKIHTHR#RCH','FSPKIHTHR/28AUG21'],notes:[]},
+ {id:'fqt',title:'مشاهده نرخ کل در رزرو',cmdLabel:'FQT',icon:'💰',desc:'مشاهده قیمت کل هر مسافر پس از ورود SSR.',pattern:'FQT',fields:[],build:function(){return 'FQT';},examples:['FQT'],notes:[]},
+ {id:'fsp',title:'قیمت کل مسیر (FSP)',cmdLabel:'FSP',icon:'💰',desc:'قیمت کل مسیر شامل Fare و مالیات‌ها.',pattern:'FSP{مسیر}[#RCH|#RIN][/{تاریخ}]',
+  fields:[{k:'route',label:'مسیر',ph:'KIHTHR',ltr:true},{k:'pax',label:'نوع مسافر',type:'select',opts:[{v:'',l:'عادی'},{v:'#RCH',l:'کودک (#RCH)'},{v:'#RIN',l:'نوزاد (#RIN)'}]},{k:'date',label:'تاریخ (اختیاری)',ph:'28AUG21',ltr:true}],
+  build:function(v){return 'FSP'+P(v.route,'[مسیر]')+(v.pax||'')+(v.date?'/'+v.date:'');},examples:['FSPKIHTHR','FSPTHRKIHTHR','FSPKIHTHR#RCH'],notes:[]},
  {id:'fsu',title:'جزئیات Fare و مالیات',cmdLabel:'FSU',icon:'🧾',desc:'مشاهده Fare به تفکیک مالیات.',pattern:'FSU{شماره خط نرخ}',
   fields:[{k:'line',label:'شماره خط نرخ',ph:'1',ltr:true}],build:function(v){return 'FSU'+P(v.line,'[خط]');},examples:['FSU1'],notes:[]},
  {id:'fsd',title:'نرخ پایه بدون مالیات (FSD)',cmdLabel:'FSD',icon:'🧾',desc:'مشاهده Fare پایه بدون مالیات.',pattern:'FSD{مسیر}',
   fields:[{k:'route',label:'مسیر',ph:'THRKIH',ltr:true}],build:function(v){return 'FSD'+P(v.route,'[مسیر]');},examples:['FSDTHRKIH'],notes:[]},
- {id:'fsn',title:'درصد نرخ و شرایط استرداد',cmdLabel:'FSN',icon:'📊',desc:'مشاهده درصد نرخ کلاس و شرایط استرداد.',pattern:'FSN{شماره خط نرخ}',
-  fields:[{k:'line',label:'شماره خط نرخ',ph:'1',ltr:true}],build:function(v){return 'FSN'+P(v.line,'[خط]');},examples:['FSN1'],notes:[]},
- {id:'sccf',title:'نرخ چارترکننده',cmdLabel:'SC:CCF',icon:'📊',desc:'مشاهده نرخ از چارترکننده پس از رزرو پرواز.',pattern:'SC:CCF',fields:[],build:function(){return 'SC:CCF';},examples:['SC:CCF'],notes:[]}
+ {id:'fsn',title:'درصد نرخ و شرایط استرداد',cmdLabel:'FSN',icon:'📊',desc:'درصد نرخ کلاس و شرایط استرداد.',pattern:'FSN{شماره خط نرخ}',
+  fields:[{k:'line',label:'شماره خط نرخ',ph:'1',ltr:true}],build:function(v){return 'FSN'+P(v.line,'[خط]');},examples:['FSN1'],notes:[]}
 ]},
 {name:'صدور بلیط',icon:'🎫',items:[
- {id:'eot',title:'تولید PNR (EOT)',cmdLabel:'*R',icon:'🎫',desc:'ذخیره و تولید PNR پس از ورود کامل اطلاعات.',pattern:'*R یا *',
-  fields:[{k:'mode',label:'نوع',type:'select',opts:[{v:'*R',l:'*R - تولید و نمایش PNR'},{v:'*',l:'* - فقط تولید'}]}],
+ {id:'eot',title:'تولید PNR (EOT)',cmdLabel:'*R',icon:'🎫',desc:'ذخیره و تولید PNR.',pattern:'*R یا *',
+  fields:[{k:'mode',label:'نوع',type:'select',opts:[{v:'*R',l:'*R - تولید و نمایش'},{v:'*',l:'* - فقط تولید'}]}],
   build:function(v){return P(v.mode,'*R');},examples:['*R','*'],notes:[]},
  {id:'etk',title:'صدور بلیط (ETK)',cmdLabel:'ETK',icon:'🎫',desc:'صدور نهایی بلیط پس از دریافت وجه.',pattern:'ETK',fields:[],build:function(){return 'ETK';},examples:['ETK'],
   notes:[{t:'danger',x:'صدور بلیط بار مالی دارد. فقط پس از دریافت وجه و اجازه واحد مالی.'}]},
- {id:'tkx',title:'محدودیت زمانی رزرو (Time Limit)',cmdLabel:'TKX/TL',icon:'⏳',desc:'تنظیم مهلت زمانی برای صدور بلیط.',pattern:'TKX/TL/{ساعت}/{تاریخ}',
+ {id:'tkx',title:'محدودیت زمانی رزرو',cmdLabel:'TKX/TL',icon:'⏳',desc:'تنظیم مهلت زمانی برای صدور بلیط.',pattern:'TKX/TL/{ساعت}/{تاریخ}',
   fields:[{k:'time',label:'ساعت',ph:'1330',ltr:true},{k:'date',label:'تاریخ',ph:'19AUG',ltr:true,dateHelper:true}],
   build:function(v){return 'TKX/TL/'+P(v.time,'[ساعت]')+'/'+P(v.date,'[تاریخ]');},examples:['TKX/TL/1330/19AUG'],notes:[]},
  {id:'rp',title:'تغییر آژانس صادرکننده',cmdLabel:'RP/',icon:'🏢',desc:'دادن دسترسی صدور به آژانس دیگر.',pattern:'RP/{کد آژانس}',
   fields:[{k:'office',label:'کد آژانس',ph:'THR002',ltr:true}],build:function(v){return 'RP/'+P(v.office,'[کد آژانس]');},examples:['RP/THR002'],notes:[]},
  {id:'gn',title:'نام گروه',cmdLabel:'GN',icon:'👥',desc:'انتخاب نام برای رزرو گروهی.',pattern:'GN{نام گروه}',
   fields:[{k:'name',label:'نام گروه',ph:'testgroup',ltr:true}],build:function(v){return 'GN'+P(v.name,'[نام]');},examples:['GNtestgroup'],notes:[]},
- {id:'rmk',title:'Remark روی PNR',cmdLabel:'RMK',icon:'📝',desc:'ارسال پیام/توضیح برای واحدهای مختلف پس از RT.',pattern:'RMK {متن}',
+ {id:'rmk',title:'Remark روی PNR',cmdLabel:'RMK',icon:'📝',desc:'ارسال پیام/توضیح روی PNR.',pattern:'RMK {متن}',
   fields:[{k:'txt',label:'متن پیام',ph:'mosafer az parvaz ja mand'}],build:function(v){return 'RMK '+P(v.txt,'[متن]');},examples:['RMK the passenger miss flight'],notes:[]}
 ]},
 {name:'مشاهده و بازیابی',icon:'👁️',items:[
  {id:'rt',title:'مشاهده PNR',cmdLabel:'RT',icon:'👁️',desc:'مشاهده اطلاعات PNR و مسافر.',pattern:'RT',fields:[],build:function(){return 'RT';},examples:['RT'],notes:[]},
- {id:'rteta',title:'بازیابی بلیط صادرشده (RTETA)',cmdLabel:'RTETA',icon:'👁️',desc:'بازیابی بلیط الکترونیکی برای اعمال تغییرات.',pattern:'RTETA',fields:[],build:function(){return 'RTETA';},examples:['RTETA'],notes:[]},
+ {id:'rteta',title:'بازیابی بلیط (RTETA)',cmdLabel:'RTETA',icon:'👁️',desc:'بازیابی بلیط الکترونیکی برای تغییرات.',pattern:'RTETA',fields:[],build:function(){return 'RTETA';},examples:['RTETA'],notes:[]},
  {id:'etr',title:'انتخاب خط بلیط (ETR)',cmdLabel:'ETR',icon:'👁️',desc:'انتخاب خط بلیط یا شماره بلیط پس از RTETA.',pattern:'ETR:{خط} یا ETR:TN{شماره بلیط}',
   fields:[{k:'mode',label:'نوع',type:'select',opts:[{v:'line',l:'ETR:{خط}'},{v:'tn',l:'ETR:TN{شماره بلیط}'}]},{k:'val',label:'مقدار',ph:'1 یا 0002400017980',ltr:true}],
-  build:function(v){if(!v.val)return 'ETR';return v.mode==='tn'?'ETR:TN'+v.val:'ETR:'+v.val;},
-  examples:['ETR:1','ETR:TN0002400017980'],notes:[]},
- {id:'dt',title:'جزئیات بلیط (DT)',cmdLabel:'DT',icon:'👁️',desc:'مشاهده جزئیات و هزینه‌های بلیط پس از ETR.',pattern:'DT',fields:[],build:function(){return 'DT';},examples:['DT'],notes:[]},
- {id:'dh',title:'تاریخچه بلیط (DH)',cmdLabel:'DH',icon:'👁️',desc:'مشاهده تاریخچه فعالیت‌های بلیط.',pattern:'DH',fields:[],build:function(){return 'DH';},examples:['DH'],notes:[]},
- {id:'ir',title:'پرینت/ایمیل مجدد بلیط (IR)',cmdLabel:'IR',icon:'🖨️',desc:'پرینت یا ارسال مجدد ایمیل بلیط پس از ETR.',pattern:'IR',fields:[],build:function(){return 'IR';},examples:['IR'],notes:[]},
- {id:'rthrtc',title:'تاریخچه PNR (RTH/RTC)',cmdLabel:'RTH / RTC',icon:'👁️',desc:'مشاهده فرآیندهای انجام‌شده روی PNR.',pattern:'RTH یا RTC',
-  fields:[{k:'mode',label:'نوع',type:'select',opts:[{v:'RTH',l:'RTH - کامل'},{v:'RTC',l:'RTC - خلاصه'}]}],
-  build:function(v){return P(v.mode,'RTH');},examples:['RTH','RTC'],notes:[]},
+  build:function(v){if(!v.val)return 'ETR';return v.mode==='tn'?'ETR:TN'+v.val:'ETR:'+v.val;},examples:['ETR:1','ETR:TN0002400017980'],notes:[]},
+ {id:'dt',title:'جزئیات بلیط (DT)',cmdLabel:'DT',icon:'👁️',desc:'جزئیات و هزینه‌های بلیط پس از ETR.',pattern:'DT',fields:[],build:function(){return 'DT';},examples:['DT'],notes:[]},
+ {id:'dh',title:'تاریخچه بلیط (DH)',cmdLabel:'DH',icon:'👁️',desc:'تاریخچه فعالیت‌های بلیط.',pattern:'DH',fields:[],build:function(){return 'DH';},examples:['DH'],notes:[]},
+ {id:'ir',title:'پرینت/ایمیل مجدد (IR)',cmdLabel:'IR',icon:'🖨️',desc:'پرینت یا ارسال مجدد ایمیل بلیط.',pattern:'IR',fields:[],build:function(){return 'IR';},examples:['IR'],notes:[]},
+ {id:'rthrtc',title:'تاریخچه PNR (RTH/RTC)',cmdLabel:'RTH / RTC',icon:'👁️',desc:'فرآیندهای انجام‌شده روی PNR.',pattern:'RTH یا RTC',
+  fields:[{k:'mode',label:'نوع',type:'select',opts:[{v:'RTH',l:'RTH - کامل'},{v:'RTC',l:'RTC - خلاصه'}]}],build:function(v){return P(v.mode,'RTH');},examples:['RTH','RTC'],notes:[]},
  {id:'da',title:'اطلاعات حساب کاربری',cmdLabel:'DA',icon:'👤',desc:'مشاهده اطلاعات حساب کاربری.',pattern:'DA',fields:[],build:function(){return 'DA';},examples:['DA'],notes:[]}
 ]},
 {name:'تغییر و استرداد',icon:'🔄',items:[
- {id:'rv',title:'Revalid (بدون جریمه)',cmdLabel:'RV',icon:'🔄',desc:'تغییر تاریخ/ساعت بدون جریمه پس از ETR.',pattern:'RV',fields:[],build:function(){return 'RV';},examples:['RV'],notes:[]},
- {id:'ex',title:'Exchange با جریمه',cmdLabel:'EX',icon:'🔄',desc:'تغییر تاریخ/کلاس با جریمه پس از ETR.',pattern:'EX',fields:[],build:function(){return 'EX';},examples:['EX'],
-  notes:[{t:'info',x:'پس از EX فرم FARE، V0,HL و EXCHANGE PENALTY را تکمیل کنید.'}]},
- {id:'vt',title:'VOID کردن بلیط',cmdLabel:'VT',icon:'🚫',desc:'باطل کردن بلیط برای صدور مجدد.',pattern:'VT',fields:[],build:function(){return 'VT';},examples:['VT'],
-  notes:[{t:'warn',x:'VOID باید با اجازه ایرلاین و قبل از ثبت در گزارش فروش انجام شود.'}]},
- {id:'rf',title:'استرداد بلیط (RF)',cmdLabel:'RF',icon:'💸',desc:'محاسبه و بازگشت مبلغ بلیط پس از باطل کردن صندلی.',pattern:'RF',fields:[],build:function(){return 'RF';},examples:['RF'],
-  notes:[{t:'danger',x:'ابتدا صندلی را با XE باطل کنید، سپس RF بزنید.'}]},
- {id:'xe',title:'حذف خط از PNR',cmdLabel:'XE',icon:'🗑️',desc:'حذف یک خط (سگمنت) از PNR قبل از ETK.',pattern:'XE{شماره خط}',
+ {id:'rv',title:'Revalid (بدون جریمه)',cmdLabel:'RV',icon:'🔄',desc:'تغییر تاریخ/ساعت بدون جریمه.',pattern:'RV',fields:[],build:function(){return 'RV';},examples:['RV'],notes:[]},
+ {id:'ex',title:'Exchange با جریمه',cmdLabel:'EX',icon:'🔄',desc:'تغییر تاریخ/کلاس با جریمه.',pattern:'EX',fields:[],build:function(){return 'EX';},examples:['EX'],notes:[]},
+ {id:'vt',title:'VOID کردن بلیط',cmdLabel:'VT',icon:'🚫',desc:'باطل کردن بلیط برای صدور مجدد.',pattern:'VT',fields:[],build:function(){return 'VT';},examples:['VT'],notes:[{t:'warn',x:'VOID باید با اجازه ایرلاین و قبل از ثبت در گزارش فروش انجام شود.'}]},
+ {id:'rf',title:'استرداد بلیط (RF)',cmdLabel:'RF',icon:'💸',desc:'بازگشت مبلغ بلیط پس از باطل کردن صندلی.',pattern:'RF',fields:[],build:function(){return 'RF';},examples:['RF'],notes:[{t:'danger',x:'ابتدا صندلی را با XE باطل کنید، سپس RF بزنید.'}]},
+ {id:'xe',title:'حذف خط از PNR',cmdLabel:'XE',icon:'🗑️',desc:'حذف یک سگمنت از PNR قبل از ETK.',pattern:'XE{شماره خط}',
   fields:[{k:'line',label:'شماره خط',ph:'3',ltr:true}],build:function(v){return 'XE'+P(v.line,'[خط]');},examples:['XE3'],notes:[]},
- {id:'xepnr',title:'حذف کل PNR',cmdLabel:'XEPNR',icon:'🗑️',desc:'حذف کامل PNR همراه با پیام اختیاری.',pattern:'XEPNR/[{پیام}]/*',
-  fields:[{k:'msg',label:'پیام (اختیاری)',ph:'BaHamahangiBazargani'}],
-  build:function(v){return 'XEPNR/'+(v.msg?v.msg+'/':'')+'*';},examples:['XEPNR/*','XEPNR/BaHamahangiBazargani/*'],notes:[]},
- {id:'mddm',title:'محاسبات استرداد مستقیم',cmdLabel:'MDDM',icon:'💸',desc:'مشاهده مستقیم محاسبات استرداد بلیط.',pattern:'MDDM{شماره بلیط}',
-  fields:[{k:'tn',label:'شماره بلیط',ph:'0002400017980',ltr:true}],build:function(v){return 'MDDM'+P(v.tn,'[بلیط]');},examples:['MDDM0002400017980','DMMM0002400017980','DMB0002400017980'],notes:[]},
- {id:'flown',title:'تغییر وضعیت به FLOWN',cmdLabel:'CX / SC',icon:'✈️',desc:'تغییر وضعیت بلیط به پرواز انجام‌شده.',pattern:'ETRTN{بلیط} → CX → روشن کردن کیت → FLOWN',
-  fields:[{k:'tn',label:'شماره بلیط',ph:'0002400017980',ltr:true}],build:function(v){return 'ETRTN'+P(v.tn,'[بلیط]');},examples:['ETRTN0002400017980','SCCSFLOWN*'],notes:[{t:'info',x:'پس از ETRTN دستور CX را بزنید، کیت پرواز را روشن و وضعیت FLOWN را انتخاب کنید.'}]}
+ {id:'xepnr',title:'حذف کل PNR',cmdLabel:'XEPNR',icon:'🗑️',desc:'حذف کامل PNR.',pattern:'XEPNR/[{پیام}]/*',
+  fields:[{k:'msg',label:'پیام (اختیاری)',ph:'BaHamahangiBazargani'}],build:function(v){return 'XEPNR/'+(v.msg?v.msg+'/':'')+'*';},examples:['XEPNR/*'],notes:[]},
+ {id:'mddm',title:'محاسبات استرداد مستقیم',cmdLabel:'MDDM',icon:'💸',desc:'مشاهده محاسبات استرداد بلیط.',pattern:'MDDM{شماره بلیط}',
+  fields:[{k:'tn',label:'شماره بلیط',ph:'0002400017980',ltr:true}],build:function(v){return 'MDDM'+P(v.tn,'[بلیط]');},examples:['MDDM0002400017980','DMMM0002400017980','DMB0002400017980'],notes:[]}
 ]},
 {name:'لیست مسافران و گزارش',icon:'📋',items:[
- {id:'ml',title:'لیست مسافران (ML)',cmdLabel:'ML:',icon:'📋',desc:'سازنده انواع لیست‌های مسافران پرواز.',pattern:'ML:{نوع}/{پرواز}/{تاریخ}[/{اضافه}]',
-  fields:[{k:'type',label:'نوع لیست',ph:'BK یا SR,M یا LB11',ltr:true,hint:'BK,SR,HX,HL,KK,SA,UN,GS,TL,NS,GN,GA,EF,TEMP,TK,NET,LB{n},CR'},{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true},{k:'extra',label:'مقدار اضافه (اختیاری)',ph:'تاریخ رزرو/کنسلی یا کد دفتر',ltr:true}],
+ {id:'ml',title:'لیست مسافران (ML)',cmdLabel:'ML:',icon:'📋',desc:'سازنده انواع لیست‌های مسافران پرواز.',pattern:'ML:{نوع}/{پرواز}/{تاریخ}',
+  fields:[{k:'type',label:'نوع لیست',ph:'BK یا SR,M یا LB11',ltr:true},{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true},{k:'extra',label:'مقدار اضافه (اختیاری)',ph:'تاریخ رزرو/کنسلی',ltr:true}],
   build:function(v){return 'ML:'+P(v.type,'[نوع]')+'/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]')+(v.extra?'/'+v.extra:'');},
-  examples:['ML:BK/2821/08AUG','ML:SR,M/2821/08AUG','ML:NS/2821/08AUG','ML:HX/2821/08AUG','ML:EF/2821/08AUG'],notes:[]},
- {id:'pnl',title:'لیست PNL',cmdLabel:'PNL',icon:'📋',desc:'ارسال/مشاهده لیست PNL مسافران.',pattern:'PNL/{پرواز}/{تاریخ}',
-  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],
-  build:function(v){return 'PNL/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]');},examples:['PNL/2821/08AUG'],notes:[]},
- {id:'bd',title:'شماره تماس مسافران',cmdLabel:'BD',icon:'📞',desc:'لیست شماره‌های تماس مسافران یک پرواز.',pattern:'BD/{پرواز}/{تاریخ}',
-  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],
-  build:function(v){return 'BD/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]');},examples:['BD/2821/08AUG'],notes:[]},
- {id:'srt',title:'مانیفست پرواز (SRT)',cmdLabel:'SRT',icon:'📋',desc:'کدهای چهارحرفی مانیفست مسافران.',pattern:'SRT/{پرواز}/{تاریخ}/ALL',
-  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],
-  build:function(v){return 'SRT/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]')+'/ALL';},examples:['SRT/2821/08AUG/ALL'],notes:[]},
- {id:'search',title:'جستجوی مسافر در پرواز',cmdLabel:'RT/',icon:'🔎',desc:'جستجوی مسافر بر اساس نام خانوادگی در پرواز.',pattern:'RT/{فامیل}/{پرواز}/{تاریخ}',
+  examples:['ML:BK/2821/08AUG','ML:SR,M/2821/08AUG','ML:NS/2821/08AUG','ML:EF/2821/08AUG'],notes:[]},
+ {id:'pnl',title:'لیست PNL',cmdLabel:'PNL',icon:'📋',desc:'ارسال/مشاهده لیست PNL.',pattern:'PNL/{پرواز}/{تاریخ}',
+  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],build:function(v){return 'PNL/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]');},examples:['PNL/2821/08AUG'],notes:[]},
+ {id:'bd',title:'شماره تماس مسافران',cmdLabel:'BD',icon:'📞',desc:'لیست شماره‌های تماس مسافران.',pattern:'BD/{پرواز}/{تاریخ}',
+  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],build:function(v){return 'BD/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]');},examples:['BD/2821/08AUG'],notes:[]},
+ {id:'srt',title:'مانیفست پرواز (SRT)',cmdLabel:'SRT',icon:'📋',desc:'کدهای چهارحرفی مانیفست.',pattern:'SRT/{پرواز}/{تاریخ}/ALL',
+  fields:[{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],build:function(v){return 'SRT/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]')+'/ALL';},examples:['SRT/2821/08AUG/ALL'],notes:[]},
+ {id:'search',title:'جستجوی مسافر در پرواز',cmdLabel:'RT/',icon:'🔎',desc:'جستجوی مسافر بر اساس نام خانوادگی.',pattern:'RT/{فامیل}/{پرواز}/{تاریخ}',
   fields:[{k:'fam',label:'نام خانوادگی',ph:'VOSOGH',ltr:true},{k:'fn',label:'شماره پرواز',ph:'2821',ltr:true},{k:'date',label:'تاریخ',ph:'08AUG',ltr:true,dateHelper:true}],
   build:function(v){return 'RT/'+P(v.fam,'[فامیل]')+'/'+P(v.fn,'[پرواز]')+'/'+P(v.date,'[تاریخ]');},examples:['RT/VOSOGH/2821/08AUG'],notes:[]}
 ]},
 {name:'صف (Queue)',icon:'📬',items:[
- {id:'qt',title:'تمام درخواست‌ها',cmdLabel:'QT',icon:'📬',desc:'مشاهده تمامی درخواست‌های ارسالی به صف.',pattern:'QT',fields:[],build:function(){return 'QT';},examples:['QT'],notes:[]},
- {id:'qta',title:'درخواست‌های فعال',cmdLabel:'QTA',icon:'📬',desc:'مشاهده درخواست‌های فعال نیازمند صدور.',pattern:'QTA',fields:[],build:function(){return 'QTA';},examples:['QTA','QSRQ'],notes:[]},
- {id:'qs',title:'درخواست‌ها بر اساس کد',cmdLabel:'QS:',icon:'📬',desc:'مشاهده درخواست‌های یک بخش خاص از صف.',pattern:'QS:{کد}',
+ {id:'qt',title:'تمام درخواست‌ها',cmdLabel:'QT',icon:'📬',desc:'مشاهده تمامی درخواست‌های صف.',pattern:'QT',fields:[],build:function(){return 'QT';},examples:['QT'],notes:[]},
+ {id:'qta',title:'درخواست‌های فعال',cmdLabel:'QTA',icon:'📬',desc:'مشاهده درخواست‌های فعال.',pattern:'QTA',fields:[],build:function(){return 'QTA';},examples:['QTA','QSRQ'],notes:[]},
+ {id:'qs',title:'درخواست‌ها بر اساس کد',cmdLabel:'QS:',icon:'📬',desc:'مشاهده درخواست‌های یک بخش خاص.',pattern:'QS:{کد}',
   fields:[{k:'code',label:'کد بخش',ph:'KK',ltr:true}],build:function(v){return 'QS:'+P(v.code,'[کد]');},examples:['QS:KK'],notes:[]},
  {id:'stk',title:'تایید درخواست',cmdLabel:'*K',icon:'✅',desc:'تایید درخواست در صف.',pattern:'*K',fields:[],build:function(){return '*K';},examples:['*K'],notes:[]},
- {id:'stkr',title:'تایید با پیام',cmdLabel:'*KR/',icon:'✅',desc:'تایید درخواست همراه با پیام در تاریخچه.',pattern:'*KR/{پیام}',
+ {id:'stkr',title:'تایید با پیام',cmdLabel:'*KR/',icon:'✅',desc:'تایید درخواست همراه با پیام.',pattern:'*KR/{پیام}',
   fields:[{k:'msg',label:'پیام',ph:'BeHamahangiBazargani'}],build:function(v){return '*KR/'+P(v.msg,'[پیام]');},examples:['*KR/BeHamahangiBazargani'],notes:[]},
  {id:'qn',title:'خارج کردن از صف',cmdLabel:'QN',icon:'📤',desc:'خارج کردن درخواست از صف.',pattern:'QN',fields:[],build:function(){return 'QN';},examples:['QN'],notes:[]},
- {id:'qd',title:'متوقف کردن درخواست',cmdLabel:'QD',icon:'⏸️',desc:'متوقف کردن درخواست برای بررسی بعدی.',pattern:'QD',fields:[],build:function(){return 'QD';},examples:['QD'],notes:[]},
- {id:'qe',title:'ارسال به کاربر/آژانس دیگر',cmdLabel:'QE',icon:'📤',desc:'ارسال درخواست به آژانس یا سوپروایزر دیگر.',pattern:'QE/{آژانس}/{کد صف}',
-  fields:[{k:'office',label:'آژانس مقصد',ph:'KIH001',ltr:true},{k:'queue',label:'کد صف',ph:'KK',ltr:true}],
-  build:function(v){return 'QE/'+P(v.office,'[آژانس]')+'/'+P(v.queue,'[صف]');},examples:['QE/KIH001/KK'],notes:[]}
+ {id:'qe',title:'ارسال به آژانس دیگر',cmdLabel:'QE',icon:'📤',desc:'ارسال درخواست به آژانس دیگر.',pattern:'QE/{آژانس}/{کد صف}',
+  fields:[{k:'office',label:'آژانس مقصد',ph:'KIH001',ltr:true},{k:'queue',label:'کد صف',ph:'KK',ltr:true}],build:function(v){return 'QE/'+P(v.office,'[آژانس]')+'/'+P(v.queue,'[صف]');},examples:['QE/KIH001/KK'],notes:[]}
 ]},
 {name:'عمومی و گزارش',icon:'⚙️',items:[
  {id:'crd',title:'اعتبار / سایِن‌های موجود',cmdLabel:'CRD',icon:'💳',desc:'مشاهده اعتبار و سایِن‌های موجود.',pattern:'CRD',fields:[],build:function(){return 'CRD';},examples:['CRD'],notes:[]},
  {id:'dgs',title:'گزارش فروش',cmdLabel:'DGS',icon:'📈',desc:'گزارش فروش برای پرینت یا دانلود.',pattern:'DGS{تاریخ}',
   fields:[{k:'date',label:'تاریخ',ph:'01TIR',ltr:true}],build:function(v){return 'DGS'+P(v.date,'[تاریخ]');},examples:['DGS01TIR'],notes:[]},
- {id:'rpb',title:'ظرفیت فروش رفته',cmdLabel:'RPB',icon:'📈',desc:'ظرفیت‌های فروش رفته در ماه‌های گذشته.',pattern:'RPB:M-{n}',
+ {id:'rpb',title:'ظرفیت فروش رفته',cmdLabel:'RPB',icon:'📈',desc:'ظرفیت‌های فروش رفته ماه‌های قبل.',pattern:'RPB:M-{n}',
   fields:[{k:'n',label:'تعداد ماه قبل',ph:'1',ltr:true}],build:function(v){return 'RPB:M-'+P(v.n,'1');},examples:['RPB:M-1'],notes:[]},
  {id:'dxex',title:'نام/مخفف ایرلاین و شهر',cmdLabel:'DX / EX',icon:'🔤',desc:'مشاهده نام یا مخفف ایرلاین‌ها و شهرها.',pattern:'DX:A/{کد} | EX:A/{نام}',
   fields:[{k:'type',label:'نوع',type:'select',opts:[{v:'DX:A',l:'DX:A - ایرلاین از کد'},{v:'EX:A',l:'EX:A - ایرلاین از نام'},{v:'DX:C',l:'DX:C - شهر از کد'},{v:'EX:C',l:'EX:C - شهر از نام'}]},{k:'val',label:'مقدار',ph:'JI یا TABAN یا THR',ltr:true}],
-  build:function(v){return P(v.type,'DX:A')+'/'+P(v.val,'[مقدار]');},examples:['DX:A/JI','EX:A/TABAN','DX:C/THR','EX:C/TEHRAN'],notes:[]},
- {id:'dgdi',title:'STOCK آفیس',cmdLabel:'DGDI',icon:'🎫',desc:'STOCK شماره بلیط‌های اختصاص‌یافته به آفیس.',pattern:'DGDI/{آفیس}',
+  build:function(v){return P(v.type,'DX:A')+'/'+P(v.val,'[مقدار]');},examples:['DX:A/JI','EX:A/TABAN','DX:C/THR'],notes:[]},
+ {id:'dgdi',title:'STOCK آفیس',cmdLabel:'DGDI',icon:'🎫',desc:'STOCK شماره بلیط‌های آفیس.',pattern:'DGDI/{آفیس}',
   fields:[{k:'office',label:'کد آفیس',ph:'THR001',ltr:true}],build:function(v){return 'DGDI/'+P(v.office,'[آفیس]');},examples:['DGDI/THR001'],notes:[]},
- {id:'ig',title:'لغو دستورات اجراشده',cmdLabel:'IG',icon:'↩️',desc:'باطل کردن دستورات و پاک کردن حافظه موقت.',pattern:'IG',fields:[],build:function(){return 'IG';},examples:['IG'],notes:[]},
- {id:'chp',title:'تغییر رمز عبور',cmdLabel:'CHP',icon:'🔑',desc:'تغییر رمز عبور بدون ورود به نسخه وب.',pattern:'CHP/{کاربری}/{قدیم}/{جدید}',
-  fields:[{k:'user',label:'نام کاربری',ltr:true},{k:'old',label:'رمز قدیم',ltr:true},{k:'new',label:'رمز جدید',ltr:true}],
-  build:function(v){return 'CHP/'+P(v.user,'[کاربری]')+'/'+P(v.old,'[قدیم]')+'/'+P(v.new,'[جدید]');},examples:[],notes:[]},
+ {id:'ig',title:'لغو دستورات اجراشده',cmdLabel:'IG',icon:'↩️',desc:'باطل کردن دستورات و پاک کردن حافظه.',pattern:'IG',fields:[],build:function(){return 'IG';},examples:['IG'],notes:[]},
  {id:'fsh',title:'نرخ بار اضافه',cmdLabel:'FSH',icon:'🧳',desc:'نرخ بار اضافه برای هر مسیر.',pattern:'FSH{مسیر}',
   fields:[{k:'route',label:'مسیر',ph:'KIHTHR',ltr:true}],build:function(v){return 'FSH'+P(v.route,'[مسیر]');},examples:['FSHKIHTHR'],notes:[]},
- {id:'xbag',title:'صدور بار اضافه',cmdLabel:'XBAG',icon:'🧳',desc:'صدور بار اضافه پس از RT و ورود اطلاعات.',pattern:'XBAG',fields:[],build:function(){return 'XBAG';},examples:['XBAG'],notes:[]}
+ {id:'xbag',title:'صدور بار اضافه',cmdLabel:'XBAG',icon:'🧳',desc:'صدور بار اضافه پس از RT.',pattern:'XBAG',fields:[],build:function(){return 'XBAG';},examples:['XBAG'],notes:[]}
 ]}
 ];
 
-/* ============================================================
-   WIZARDS (Step-by-step guides)
-============================================================ */
+/* ================= WIZARDS ================= */
 function mk(ref){var s=findSpec(TERMINAL,ref);return {t:s?s.title:ref,d:s?s.desc:'',ref:ref};}
 var WIZARDS=[
- {id:'wz_issue',title:'صدور بلیط (انفرادی ۱ تا ۹ نفر)',icon:'🎫',desc:'مسیر کامل از جستجوی پرواز تا صدور نهایی بلیط. برای هر PNR حداکثر ۹ مسافر؛ برای بیش از ۹ نفر از ویزارد گروهی استفاده کنید.',
+ {id:'wz_issue',title:'صدور بلیط (انفرادی ۱ تا ۹ نفر)',icon:'🎫',desc:'مسیر کامل از جستجوی پرواز تا صدور نهایی بلیط.',
   steps:[
    {t:'بررسی اعتبار (اختیاری)',d:'قبل از شروع، از کافی بودن اعتبار حساب مطمئن شوید.',ref:'crd'},
-   {t:'بررسی وجود پرواز و ظرفیت',d:'با دستور AY پرواز مورد نظر را در مسیر و تاریخ دلخواه پیدا کنید و کلاس دارای ظرفیت را یادداشت کنید.',ref:'ay'},
-   {t:'انتخاب سگمنت و کلاس (SD)',d:'بر اساس شماره خط از نتیجه مرحله قبل، کلاس و تعداد مسافران را انتخاب کنید.',ref:'sd'},
-   {t:'ورود نام مسافران (NM)',d:'نام و نام خانوادگی هر مسافر را با عنوان (MR/MRS/...) وارد کنید. مسافر اول حتماً بزرگسال باشد.',ref:'nm'},
-   {t:'ورود کد ملی / پاسپورت (SSR DOCS)',d:'به ازای هر مسافر کد ملی یا پاسپورت را وارد کنید. این مرحله برای تمام مسافران الزامی است.',custom:'docs'},
-   {t:'سایر خدمات ویژه (کودک/نوزاد/ویلچر)',d:'در صورت نیاز، SSR های جانبی مثل کودک، نوزاد، ویلچر یا UMNR را وارد کنید.',custom:'ssrextra'},
-   {t:'ورود شماره تماس (Contact)',d:'حداقل یکی از راه‌های تماس (موبایل/ایمیل/تلفن) الزامی است.',ref:'contact'},
-   {t:'محدودیت زمانی رزرو (Time Limit)',d:'مهلت صدور بلیط را تنظیم کنید تا رزرو باز نماند.',ref:'tkx'},
-   {t:'تولید PNR (EOT)',d:'با دستور *R رزرو را ذخیره و کد PNR را دریافت کنید.',ref:'eot'},
-   {t:'مشاهده قیمت نهایی (FQT)',d:'قبل از صدور، قیمت کل هر مسافر را کنترل کنید.',ref:'fqt'},
-   {t:'صدور بلیط (ETK)',d:'پس از دریافت وجه و تایید، بلیط را صادر کنید. شماره بلیط هر مسافر نمایش داده می‌شود.',ref:'etk'}
+   {t:'بررسی وجود پرواز و ظرفیت',d:'با دستور AY پرواز مورد نظر را پیدا کنید و کلاس دارای ظرفیت را یادداشت کنید.',ref:'ay'},
+   {t:'انتخاب سگمنت و کلاس (SD)',d:'بر اساس شماره خط از نتیجه قبل، کلاس و تعداد مسافران را انتخاب کنید.',ref:'sd'},
+   {t:'ورود نام مسافران (NM)',d:'نام هر مسافر را با عنوان وارد کنید. مسافر اول حتماً بزرگسال باشد.',ref:'nm'},
+   {t:'ورود کد ملی / پاسپورت (SSR)',d:'به ازای هر مسافر کد ملی یا پاسپورت وارد کنید. الزامی است.',custom:'docs'},
+   {t:'خدمات ویژه (کودک/نوزاد/ویلچر)',d:'در صورت نیاز SSR های جانبی را وارد کنید.',custom:'ssrextra'},
+   {t:'ورود شماره تماس',d:'حداقل یکی از راه‌های تماس الزامی است.',ref:'contact'},
+   {t:'محدودیت زمانی رزرو',d:'مهلت صدور بلیط را تنظیم کنید.',ref:'tkx'},
+   {t:'تولید PNR (EOT)',d:'با *R رزرو را ذخیره و کد PNR بگیرید.',ref:'eot'},
+   {t:'مشاهده قیمت نهایی (FQT)',d:'قبل از صدور، قیمت کل را کنترل کنید.',ref:'fqt'},
+   {t:'صدور بلیط (ETK)',d:'پس از دریافت وجه، بلیط را صادر کنید.',ref:'etk'}
   ]},
- {id:'wz_group',title:'صدور بلیط گروهی (بیش از ۹ نفر)',icon:'👥',desc:'رزرو و صدور برای گروه‌های بالای ۹ نفر که به صورت درخواست (ON) ثبت و توسط کنترل تایید می‌شود.',
+ {id:'wz_refund',title:'استرداد بلیط (Refund)',icon:'💸',desc:'بازگرداندن مبلغ بلیط باطل‌شده به مسافر.',
   steps:[
-   {t:'بررسی وجود پرواز و ظرفیت',d:'پرواز را پیدا کنید. کلاسی را انتخاب کنید که ظرفیت آن A (بیش از ۹ صندلی) باشد.',ref:'ay'},
-   {t:'انتخاب سگمنت به صورت ON',d:'چون تعداد بالاست، رزرو به صورت درخواست (ON) ثبت می‌شود.',ref:'sd'},
-   {t:'ثبت درخواست و تولید PNR',d:'با TKT و سپس *R درخواست را ثبت کنید. وضعیت رزرو GROUP/ON خواهد بود.',ref:'eot'},
-   {t:'پیگیری درخواست در صف',d:'درخواست شما در صف قرار می‌گیرد. با QTA یا QSRQ وضعیت را پیگیری کنید.',ref:'qta'},
-   {t:'تایید یا رد توسط کنترل (KK/UC)',d:'واحد کنترل یا ایرلاین درخواست را با KK تایید یا با UC رد می‌کند.',ref:'confirm'},
-   {t:'تنظیم Time Limit',d:'پس از تایید، معمولاً کنترل مهلت صدور (TK) تعیین می‌کند.',ref:'tkx'},
-   {t:'ورود نام مسافران',d:'اسامی مسافران گروه را وارد کنید.',ref:'nm'},
-   {t:'ورود کد ملی / پاسپورت',d:'به ازای هر مسافر اطلاعات هویتی را وارد کنید.',custom:'docs'},
-   {t:'مشاهده قیمت (FQT)',d:'قیمت نهایی را کنترل کنید.',ref:'fqt'},
-   {t:'صدور بلیط (ETK)',d:'بلیط‌ها را صادر کنید.',ref:'etk'},
-   {t:'واگذاری صدور به آژانس دیگر (اختیاری)',d:'در صورت نیاز، دسترسی صدور را با RP به آژانس دیگر بدهید.',ref:'rp'}
+   {t:'بازیابی بلیط',d:'با RTETA بلیط را بازیابی و با ETR:TN انتخاب کنید.',ref:'etr'},
+   {t:'باطل کردن صندلی (XE)',d:'صندلی مسافر را با XE باطل کنید.',ref:'xe'},
+   {t:'مشاهده محاسبات استرداد',d:'با MDDM محاسبات را ببینید.',ref:'mddm'},
+   {t:'انجام استرداد (RF)',d:'پس از باطل بودن صندلی، RF را اجرا کنید.',ref:'rf'},
+   {t:'حذف کامل PNR (در صورت نیاز)',d:'با XEPNR/* کل PNR را حذف کنید.',ref:'xepnr'}
   ]},
- {id:'wz_refund',title:'استرداد بلیط (Refund)',icon:'💸',desc:'بازگرداندن مبلغ بلیط باطل‌شده به مسافر، همراه با محاسبه جریمه.',
-  steps:[
-   {t:'بازیابی بلیط',d:'با RTETA بلیط صادرشده را بازیابی و با ETR:TN شماره بلیط را انتخاب کنید.',ref:'etr'},
-   {t:'باطل کردن صندلی مسافر (XE)',d:'صندلی مسافر را با XE باطل کنید. اگر مسیر رفت‌وبرگشت است و یک مسیر پرواز شده، ابتدا مسیر انجام‌شده را FLOWN کنید.',ref:'xe'},
-   {t:'مشاهده محاسبات استرداد (اختیاری)',d:'با MDDM محاسبات استرداد را مستقیم ببینید. با DMMM فرم را باز/اصلاح و با DMB قیمت پایه را مشاهده کنید.',ref:'mddm'},
-   {t:'انجام استرداد (RF)',d:'پس از ETR و باطل بودن صندلی، دستور RF را اجرا کنید تا مبلغ با کسر جریمه محاسبه و بازگردانده شود.',ref:'rf'},
-   {t:'حذف کامل PNR (در صورت نیاز)',d:'اگر قصد حذف کل PNR را دارید از XEPNR/* استفاده کنید.',ref:'xepnr'}
-  ]},
- {id:'wz_change',title:'تغییر بلیط (۵ حالت)',icon:'🔄',desc:'انواع تغییر روی بلیط صادرشده. حالت مورد نظر را انتخاب کنید تا مراحل آن نمایش داده شود.',
+ {id:'wz_change',title:'تغییر بلیط (۵ حالت)',icon:'🔄',desc:'انواع تغییر روی بلیط صادرشده.',
   modes:[
-   {label:'OPEN → با تاریخ',desc:'تبدیل بلیط OPEN (بدون تاریخ) به بلیط دارای تاریخ با RV.',steps:['ay','xe','eot','etr','rv']},
-   {label:'تاریخ/ساعت بدون جریمه',desc:'تغییر تاریخ و ساعت پرواز بدون جریمه با RV.',steps:['ay','xe','eot','etr','rv']},
-   {label:'تاریخ/ساعت/کلاس با جریمه',desc:'تغییر همراه با جریمه با EX و تکمیل فرم FARE.',steps:['ay','xe','eot','etr','ex']},
-   {label:'کلاس/ساعت بدون جریمه (VOID)',desc:'تغییر کلاس یا ساعت با VT و صدور مجدد.',steps:['ay','xe','eot','etr','vt','etk']},
-   {label:'تغییر مسیر پرواز',desc:'تغییر کامل مسیر با RF روی مسیر قبل و صدور مسیر جدید.',steps:['ay','xe','eot','etr','rf','etk']}
+   {label:'OPEN → با تاریخ',steps:['ay','xe','eot','etr','rv']},
+   {label:'تاریخ/ساعت بدون جریمه',steps:['ay','xe','eot','etr','rv']},
+   {label:'تاریخ/ساعت/کلاس با جریمه',steps:['ay','xe','eot','etr','ex']},
+   {label:'کلاس/ساعت بدون جریمه (VOID)',steps:['ay','xe','eot','etr','vt','etk']},
+   {label:'تغییر مسیر پرواز',steps:['ay','xe','eot','etr','rf','etk']}
   ]},
- {id:'wz_void',title:'باطل کردن بلیط (VOID)',icon:'🚫',desc:'VOID کردن بلیط برای صدور مجدد در مسیر/کلاس/تاریخ دیگر.',
-  steps:[
-   {t:'بازیابی بلیط',d:'بلیط را با RTETA و ETR:TN انتخاب کنید.',ref:'etr'},
-   {t:'VOID کردن بلیط',d:'با دستور VT بلیط را باطل کنید.',ref:'vt'},
-   {t:'رزرو جدید',d:'مسیر/کلاس/تاریخ جدید را با AY پیدا و رزرو کنید.',ref:'ay'},
-   {t:'صدور مجدد',d:'بلیط جدید را با ETK صادر کنید.',ref:'etk'},
-   {t:'حذف خط پرواز قدیم',d:'خط پرواز قبلی را با XE حذف کنید.',ref:'xe'}
-  ]},
- {id:'wz_xbag',title:'صدور بار اضافه',icon:'🧳',desc:'صدور قبض بار اضافه برای مسافر.',
-  steps:[
-   {t:'مشاهده نرخ بار اضافه',d:'نرخ بار اضافه مسیر را با FSH ببینید.',ref:'fsh'},
-   {t:'بازیابی PNR مسافر',d:'با RT سنرفر مسافر را باز کنید.',ref:'rt'},
-   {t:'صدور بار اضافه (XBAG)',d:'با XBAG فرم صدور بار اضافه را باز کنید، وزن و پرواز را وارد و ISSUE کنید.',ref:'xbag'}
-  ]},
- {id:'wz_xbag_refund',title:'استرداد بار اضافه',icon:'🧳',desc:'VOID کردن قبض بار اضافه صادرشده.',
-  steps:[
-   {t:'بازیابی PNR و SSR',d:'با RT سنرفر را باز کرده و خط SSR بار اضافه را پیدا کنید.',ref:'rt'},
-   {t:'انتخاب تیكت بار اضافه',d:'شماره تیكت بار اضافه (TN) را با ETR:TN انتخاب کنید.',ref:'etr'},
-   {t:'VOID کردن قبض',d:'با VT قبض بار اضافه را باطل کنید.',ref:'vt'}
-  ]},
- {id:'wz_umnr',title:'صدور بلیط کودک بدون همراه (UMNR)',icon:'🧒',desc:'رزرو و صدور بلیط برای مسافر کودک بدون همراه با تایید کنترل.',
-  steps:[
-   {t:'بررسی پرواز',d:'پرواز مورد نظر را پیدا کنید.',ref:'ay'},
-   {t:'رزرو صندلی',d:'صندلی را با SD رزرو کنید.',ref:'sd'},
-   {t:'ورود نام (بزرگسال)',d:'ابتدا کودک را به صورت بزرگسال رزرو و نام را وارد کنید.',ref:'nm'},
-   {t:'ثبت SSR UMNR',d:'با SSR:ALL UMNR کودک بدون همراه را ثبت کنید. توضیحات شامل نام و شماره تماس مقصد باشد.',ref:'umnr'},
-   {t:'پیگیری در صف',d:'درخواست UM در صف RQ قرار می‌گیرد. با QTA و QSRQ پیگیری کنید.',ref:'qta'},
-   {t:'تایید درخواست (KK)',d:'پس از تایید کنترل، وضعیت به KK و سپس HK تغییر می‌کند.',ref:'confirm'},
-   {t:'صدور بلیط',d:'بلیط را با ETK صادر کنید.',ref:'etk'}
-  ]},
- {id:'wz_exst',title:'صدور صندلی اضافه (EXTRA SEAT)',icon:'🪑',desc:'صدور صندلی اضافه برای یک مسافر (دو صندلی با یک نام).',
-  steps:[
-   {t:'بررسی پرواز',d:'پرواز را پیدا کنید.',ref:'ay'},
-   {t:'رزرو دو صندلی',d:'با SD دو صندلی برای مسافر رزرو کنید.',ref:'sd'},
-   {t:'ورود نام‌ها',d:'نام مسافر را دوبار وارد کنید: بار اول نام کامل، بار دوم به جای نام از EXST استفاده کنید.',spec:{cmdLabel:'NM',desc:'دو دستور NM پشت سر هم',pattern:'NM{فامیل}/{نام} و NM{فامیل}/EXST',fields:[{k:'last',label:'نام خانوادگی',ph:'VOSOGH',ltr:true},{k:'first',label:'نام',ph:'AMIR',ltr:true}],build:function(v){return 'NM'+P(v.last,'[فامیل]')+'/'+P(v.first,'[نام]')+' MR'+'\n'+'NM'+P(v.last,'[فامیل]')+'/EXST';},examples:['NMVOSOGH/AMIR MR; NMVOSOGH/EXST'],notes:[]}},
-   {t:'ثبت SSR EXST',d:'برای صندلی دوم SSR: EXST را وارد کنید.',ref:'exst'},
-   {t:'مشاهده قیمت',d:'قیمت را کنترل کنید (دو Fare پایه محاسبه می‌شود).',ref:'fqt'},
-   {t:'صدور بلیط',d:'بلیط را صادر کنید.',ref:'etk'}
-  ]}
+ {id:'wz_void',title:'باطل کردن بلیط (VOID)',icon:'🚫',desc:'VOID کردن بلیط برای صدور مجدد.',
+  steps:[{t:'بازیابی بلیط',d:'بلیط را با ETR:TN انتخاب کنید.',ref:'etr'},{t:'VOID کردن',d:'با VT بلیط را باطل کنید.',ref:'vt'},{t:'رزرو جدید',d:'مسیر/کلاس جدید را با AY رزرو کنید.',ref:'ay'},{t:'صدور مجدد',d:'بلیط جدید را با ETK صادر کنید.',ref:'etk'},{t:'حذف خط قدیم',d:'خط پرواز قبلی را با XE حذف کنید.',ref:'xe'}]}
 ];
 
-/* ============================================================
-   RENDER ENGINE
-============================================================ */
+/* ================= RENDER ENGINE ================= */
 function renderField(f){
-  var h='<div class="field"><label>'+esc(f.label)+(f.req?' <span class="req">*</span>':'')+'</label>';
-  if(f.type==='select'){
-    h+='<select class="inp" data-k="'+f.k+'">';
-    (f.opts||[]).forEach(function(o){
-      var val=(typeof o==='object')?o.v:o;
-      var lab=(typeof o==='object')?o.l:o;
-      h+='<option value="'+esc(val)+'">'+esc(lab)+'</option>';
-    });
-    h+='</select>';
-  }else{
-    h+='<input class="inp'+(f.ltr?' ltr':'')+'" data-k="'+f.k+'" type="'+(f.type||'text')+'" placeholder="'+esc(f.ph||'')+'">';
-  }
-  if(f.dateHelper){
-    h+='<input type="date" class="inp dateHelper" data-target="'+f.k+'" style="margin-top:6px">';
-    h+='<div class="hint">برای تولید خودکار تاریخ میلادی (مثل 28AUG) از انتخابگر بالا استفاده کنید؛ یا مقدار شمسی/نسبی را دستی تایپ کنید.</div>';
-  }
+  var h='<div class="field"><label>'+esc(f.label)+'</label>';
+  if(f.type==='select'){h+='<select class="inp" data-k="'+f.k+'">';(f.opts||[]).forEach(function(o){var val=(typeof o==='object')?o.v:o;var lab=(typeof o==='object')?o.l:o;h+='<option value="'+esc(val)+'">'+esc(lab)+'</option>';});h+='</select>';}
+  else{h+='<input class="inp'+(f.ltr?' ltr':'')+'" data-k="'+f.k+'" type="'+(f.type||'text')+'" placeholder="'+esc(f.ph||'')+'">';}
+  if(f.dateHelper){h+='<input type="date" class="inp dateHelper" data-target="'+f.k+'" style="margin-top:6px"><div class="hint">برای تولید خودکار تاریخ میلادی از انتخابگر بالا استفاده کنید.</div>';}
   if(f.hint)h+='<div class="hint">'+esc(f.hint)+'</div>';
-  h+='</div>';
-  return h;
+  h+='</div>';return h;
 }
-
 function renderSpec(spec,areaEl,opts){
-  opts=opts||{};
-  var h='';
-  if(!opts.noHeader){
-    h+='<div class="spec-head">';
-    h+='<div class="spec-title">'+spec.icon+' '+esc(spec.title)+' <span class="cmd-badge">'+esc(spec.cmdLabel)+'</span></div>';
-    h+='<div class="spec-desc">'+esc(spec.desc)+'</div>';
-    if(spec.pattern)h+='<div class="pattern">الگو: <code>'+esc(spec.pattern)+'</code></div>';
-    h+='</div>';
-  } else if(spec.pattern){
-    h+='<div class="pattern">الگو: <code>'+esc(spec.pattern)+'</code></div>';
-  }
-  h+='<div class="fields">';
-  (spec.fields||[]).forEach(function(f){h+=renderField(f);});
+  opts=opts||{};var h='';
+  if(!opts.noHeader){h+='<div class="spec-head"><div class="spec-title">'+spec.icon+' '+esc(spec.title)+' <span class="cmd-badge">'+esc(spec.cmdLabel)+'</span></div><div class="spec-desc">'+esc(spec.desc)+'</div>';
+   if(spec.pattern)h+='<div class="pattern">الگو: <code>'+esc(spec.pattern)+'</code></div>';h+='</div>';}
+  else if(spec.pattern){h+='<div class="pattern">الگو: <code>'+esc(spec.pattern)+'</code></div>';}
+  h+='<div class="fields">';(spec.fields||[]).forEach(function(f){h+=renderField(f);});
   if(!spec.fields||!spec.fields.length){h+='<div class="hint" style="grid-column:1/-1">این دستور پارامتر ندارد و به صورت ثابت اجرا می‌شود.</div>';}
-  h+='</div>';
-  h+='<div class="output-wrap"><div class="output-label">📟 دستور تولید شده:</div>';
-  h+='<div class="output-box"><span class="cmd-text"></span></div>';
-  h+='<div class="output-actions"><button class="btn-copy copyBtn">📋 کپی دستور</button><button class="btn-ghost clearBtn">پاک کردن</button></div></div>';
-  if(spec.examples&&spec.examples.length){
-    h+='<div class="examples"><div class="ex-label">مثال‌ها (برای کپی کلیک کنید):</div><div class="ex-chips">';
-    spec.examples.forEach(function(e){h+='<button class="chip" data-copy="'+esc(e)+'">'+esc(e)+'</button>';});
-    h+='</div></div>';
-  }
-  if(spec.notes&&spec.notes.length){
-    h+='<div class="notes">';
-    spec.notes.forEach(function(n){var ic=n.t==='warn'?'⚠️':(n.t==='danger'?'🚨':(n.t==='success'?'✅':'ℹ️'));h+='<div class="note '+(n.t||'info')+'">'+ic+' '+esc(n.x)+'</div>';});
-    h+='</div>';
-  }
+  h+='</div><div class="output-wrap"><div class="output-label">📟 دستور تولید شده:</div><div class="output-box"><span class="cmd-text"></span></div><div class="output-actions"><button class="btn-copy copyBtn">📋 کپی دستور</button><button class="btn-ghost clearBtn">پاک کردن</button></div></div>';
+  if(spec.examples&&spec.examples.length){h+='<div class="examples"><div class="ex-label">مثال‌ها:</div><div class="ex-chips">';spec.examples.forEach(function(e){h+='<button class="chip" data-copy="'+esc(e)+'">'+esc(e)+'</button>';});h+='</div></div>';}
+  if(spec.notes&&spec.notes.length){h+='<div class="notes">';spec.notes.forEach(function(n){var ic=n.t==='warn'?'⚠️':(n.t==='danger'?'🚨':'ℹ️');h+='<div class="note '+(n.t||'info')+'">'+ic+' '+esc(n.x)+'</div>';});h+='</div>';}
   areaEl.innerHTML=h;
   var outEl=areaEl.querySelector('.cmd-text');
-  function update(){
-    var v={};
-    areaEl.querySelectorAll('.inp[data-k]').forEach(function(el){v[el.getAttribute('data-k')]=el.value;});
-    var out='';
-    try{out=spec.build(v);}catch(e){out='[خطا در ساخت دستور]';}
-    outEl.textContent=out;
-  }
+  function update(){var v={};areaEl.querySelectorAll('.inp[data-k]').forEach(function(el){v[el.getAttribute('data-k')]=el.value;});var out='';try{out=spec.build(v);}catch(e){out='[خطا]';}outEl.textContent=out;}
   areaEl.querySelectorAll('.inp').forEach(function(el){el.addEventListener('input',update);});
-  areaEl.querySelectorAll('.dateHelper').forEach(function(el){
-    el.addEventListener('change',function(){
-      var t=areaEl.querySelector('.inp[data-k="'+this.getAttribute('data-target')+'"]');
-      if(t&&this.value){t.value=gregFromDateInput(this.value);update();}
-    });
-  });
-  areaEl.querySelector('.copyBtn').addEventListener('click',function(){
-    copyText(outEl.textContent);this.textContent='✅ کپی شد';showToast('کپی شد');
-    var self=this;setTimeout(function(){self.textContent='📋 کپی دستور';},1500);
-  });
-  areaEl.querySelector('.clearBtn').addEventListener('click',function(){
-    areaEl.querySelectorAll('.inp').forEach(function(el){if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});
-    update();
-  });
-  areaEl.querySelectorAll('.chip').forEach(function(c){
-    c.addEventListener('click',function(){copyText(c.getAttribute('data-copy'));showToast(c.getAttribute('data-copy'));});
-  });
+  areaEl.querySelectorAll('.dateHelper').forEach(function(el){el.addEventListener('change',function(){var t=areaEl.querySelector('.inp[data-k="'+this.getAttribute('data-target')+'"]');if(t&&this.value){t.value=gregFromDateInput(this.value);update();}});});
+  areaEl.querySelector('.copyBtn').addEventListener('click',function(){copyText(outEl.textContent);this.textContent='✅ کپی شد';showToast('کپی شد');var s=this;setTimeout(function(){s.textContent='📋 کپی دستور';},1500);});
+  areaEl.querySelector('.clearBtn').addEventListener('click',function(){areaEl.querySelectorAll('.inp').forEach(function(el){if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});update();});
+  areaEl.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){copyText(c.getAttribute('data-copy'));showToast(c.getAttribute('data-copy'));});});
   update();
 }
-
-/* ---------- Custom builders for wizard steps ---------- */
 function renderDocsBuilder(areaEl){
   var h='<div class="field" style="max-width:220px"><label>تعداد مسافران</label><select class="inp" id="docsCount">';
-  for(var i=1;i<=9;i++){h+='<option value="'+i+'">'+i+' مسافر</option>';}
-  h+='</select></div>';
-  h+='<div id="docsCards"></div>';
-  h+=outputBlock('docsOutput','docsCopy',true);
-  areaEl.innerHTML=h;
+  for(var i=1;i<=9;i++){h+='<option value="'+i+'">'+i+' مسافر</option>';}h+='</select></div><div id="docsCards"></div>';
+  h+=outputBlock('docsOutput','docsCopy',true);areaEl.innerHTML=h;
   var countEl=document.getElementById('docsCount');
   function g(cls,i){var el=document.querySelector(cls+'[data-i="'+i+'"]');return el?el.value.trim():'';}
-  function toggleP(sel){
-    var card=sel.closest('.pax-card');
-    var isP=sel.value==='passport';
-    card.querySelectorAll('.p-only').forEach(function(f){f.style.display=isP?'flex':'none';});
-  }
-  function update(){
-    var lines=[];
-    var n=parseInt(countEl.value,10);
-    for(var i=1;i<=n;i++){
-      var type=g('.d-type',i),num=g('.d-num',i),bd=g('.d-bd',i),ge=g('.d-g',i);
-      var line='';
-      if(type==='passport'){
-        var pob=g('.d-pob',i),ci=g('.d-ci',i),doe=g('.d-doe',i),last=g('.d-last',i),first=g('.d-first',i);
-        line='SSR:ALL DOCS HK1/P/'+P(pob,'[محل تولد]')+'/'+P(num,'[پاسپورت]')+'/'+P(ci,'[کشور]')+'/'+P(bd,'[تولد]')+'/'+ge+'/'+P(doe,'[انقضا]')+'/'+P(last,'[فامیل]')+'/'+P(first,'[نام]')+'/P'+i;
-      }else{
-        line='SSR:ALL DOCS HK1/I//'+P(num,'[کد ملی]')+'//'+P(bd,'[تولد]')+'/'+ge+'////P'+i;
-      }
-      lines.push(line);
-    }
-    document.getElementById('docsOutput').textContent=lines.join('\n');
-  }
-  function buildCards(){
-    var n=parseInt(countEl.value,10);
-    var cards=document.getElementById('docsCards');
-    var ch='';
-    for(var i=1;i<=n;i++){
-      ch+='<div class="pax-card"><div class="pax-card-title">👤 مسافر '+i+' (P'+i+')</div><div class="fields">';
-      ch+='<div class="field"><label>نوع مدرک</label><select class="inp d-type" data-i="'+i+'"><option value="id">کد ملی (ایرانی/داخلی)</option><option value="passport">پاسپورت</option></select></div>';
-      ch+='<div class="field"><label>کد ملی / شماره پاسپورت</label><input class="inp ltr d-num" data-i="'+i+'" placeholder="0080100008"></div>';
-      ch+='<div class="field"><label>تاریخ تولد</label><input class="inp ltr d-bd" data-i="'+i+'" placeholder="09SHA65 یا 26JUN96"></div>';
-      ch+='<div class="field"><label>جنسیت</label><select class="inp d-g" data-i="'+i+'"><option value="M">M - مذکر</option><option value="F">F - مونث</option></select></div>';
-      ch+='<div class="field p-only"><label>محل تولد</label><input class="inp ltr d-pob" data-i="'+i+'" placeholder="IRN"></div>';
-      ch+='<div class="field p-only"><label>کشور صدور</label><input class="inp ltr d-ci" data-i="'+i+'" placeholder="IRN"></div>';
-      ch+='<div class="field p-only"><label>تاریخ انقضا</label><input class="inp ltr d-doe" data-i="'+i+'" placeholder="09NOV22"></div>';
-      ch+='<div class="field p-only"><label>نام خانوادگی</label><input class="inp ltr d-last" data-i="'+i+'" placeholder="VOSOGH"></div>';
-      ch+='<div class="field p-only"><label>نام</label><input class="inp ltr d-first" data-i="'+i+'" placeholder="AMIR"></div>';
-      ch+='</div></div>';
-    }
-    cards.innerHTML=ch;
-    cards.querySelectorAll('.inp').forEach(function(inp){inp.addEventListener('input',update);});
-    cards.querySelectorAll('.d-type').forEach(function(sel){sel.addEventListener('change',function(){toggleP(this);update();});toggleP(sel);});
-    update();
-  }
-  countEl.addEventListener('change',buildCards);
-  wireCopy('docsCopy','docsOutput');
-  buildCards();
+  function toggleP(sel){var card=sel.closest('.pax-card');var isP=sel.value==='passport';card.querySelectorAll('.p-only').forEach(function(f){f.style.display=isP?'flex':'none';});}
+  function update(){var lines=[];var n=parseInt(countEl.value,10);for(var i=1;i<=n;i++){var type=g('.d-type',i),num=g('.d-num',i),bd=g('.d-bd',i),ge=g('.d-g',i);var line='';
+   if(type==='passport'){var pob=g('.d-pob',i),ci=g('.d-ci',i),doe=g('.d-doe',i),last=g('.d-last',i),first=g('.d-first',i);line='SSR:ALL DOCS HK1/P/'+P(pob,'[محل تولد]')+'/'+P(num,'[پاسپورت]')+'/'+P(ci,'[کشور]')+'/'+P(bd,'[تولد]')+'/'+ge+'/'+P(doe,'[انقضا]')+'/'+P(last,'[فامیل]')+'/'+P(first,'[نام]')+'/P'+i;}
+   else{line='SSR:ALL DOCS HK1/I//'+P(num,'[کد ملی]')+'//'+P(bd,'[تولد]')+'/'+ge+'////P'+i;}
+   lines.push(line);}document.getElementById('docsOutput').textContent=lines.join('\n');}
+  function buildCards(){var n=parseInt(countEl.value,10);var cards=document.getElementById('docsCards');var ch='';
+   for(var i=1;i<=n;i++){ch+='<div class="pax-card"><div class="pax-card-title">👤 مسافر '+i+' (P'+i+')</div><div class="fields">';
+    ch+='<div class="field"><label>نوع مدرک</label><select class="inp d-type" data-i="'+i+'"><option value="id">کد ملی</option><option value="passport">پاسپورت</option></select></div>';
+    ch+='<div class="field"><label>کد ملی / شماره پاسپورت</label><input class="inp ltr d-num" data-i="'+i+'" placeholder="0080100008"></div>';
+    ch+='<div class="field"><label>تاریخ تولد</label><input class="inp ltr d-bd" data-i="'+i+'" placeholder="09SHA65"></div>';
+    ch+='<div class="field"><label>جنسیت</label><select class="inp d-g" data-i="'+i+'"><option value="M">M - مذکر</option><option value="F">F - مونث</option></select></div>';
+    ch+='<div class="field p-only"><label>محل تولد</label><input class="inp ltr d-pob" data-i="'+i+'" placeholder="IRN"></div>';
+    ch+='<div class="field p-only"><label>کشور صدور</label><input class="inp ltr d-ci" data-i="'+i+'" placeholder="IRN"></div>';
+    ch+='<div class="field p-only"><label>تاریخ انقضا</label><input class="inp ltr d-doe" data-i="'+i+'" placeholder="09NOV22"></div>';
+    ch+='<div class="field p-only"><label>نام خانوادگی</label><input class="inp ltr d-last" data-i="'+i+'" placeholder="VOSOGH"></div>';
+    ch+='<div class="field p-only"><label>نام</label><input class="inp ltr d-first" data-i="'+i+'" placeholder="AMIR"></div>';
+    ch+='</div></div>';}
+   cards.innerHTML=ch;cards.querySelectorAll('.inp').forEach(function(inp){inp.addEventListener('input',update);});
+   cards.querySelectorAll('.d-type').forEach(function(sel){sel.addEventListener('change',function(){toggleP(this);update();});toggleP(sel);});update();}
+  countEl.addEventListener('change',buildCards);wireCopy('docsCopy','docsOutput');buildCards();
 }
-
 function renderSsrExtraBuilder(areaEl){
-  var h='<div class="fields">';
-  h+='<div class="field"><label>نوع خدمت</label><select class="inp" id="sx-type">';
-  h+='<option value="CHLD">CHLD - کودک</option>';
-  h+='<option value="INFT">INFT - نوزاد</option>';
-  h+='<option value="WCHR">WCHR - ویلچر (رمپ)</option>';
-  h+='<option value="WCHC">WCHC - ویلچر (تا صندلی)</option>';
-  h+='<option value="WCHS">WCHS - ویلچر (پله‌ها)</option>';
-  h+='<option value="UMNR">UMNR - کودک بدون همراه</option>';
-  h+='</select></div>';
-  h+='<div class="field"><label>شماره مسافر</label><input class="inp ltr" id="sx-pax" placeholder="1"></div>';
-  h+='</div>';
-  h+='<div class="fields" style="margin-top:14px">';
-  h+='<div class="field sx-inft"><label>نام خانوادگی نوزاد</label><input class="inp ltr" id="sx-last" placeholder="VOSOGH"></div>';
+  var h='<div class="fields"><div class="field"><label>نوع خدمت</label><select class="inp" id="sx-type">';
+  h+='<option value="CHLD">CHLD - کودک</option><option value="INFT">INFT - نوزاد</option><option value="WCHR">WCHR - ویلچر</option><option value="UMNR">UMNR - کودک بدون همراه</option></select></div>';
+  h+='<div class="field"><label>شماره مسافر</label><input class="inp ltr" id="sx-pax" placeholder="1"></div></div>';
+  h+='<div class="fields" style="margin-top:14px"><div class="field sx-inft"><label>فامیل نوزاد</label><input class="inp ltr" id="sx-last" placeholder="VOSOGH"></div>';
   h+='<div class="field sx-inft"><label>نام نوزاد</label><input class="inp ltr" id="sx-first" placeholder="FATEMEH"></div>';
-  h+='<div class="field sx-inft"><label>تاریخ تولد نوزاد</label><input class="inp ltr" id="sx-bd" placeholder="02JAN25"></div>';
-  h+='<div class="field sx-umnr"><label>توضیحات (نام + تماس مقصد)</label><input class="inp ltr" id="sx-txt" placeholder="SARA SADEGHI 09120000000"></div>';
-  h+='</div>';
-  h+=outputBlock('sx-output','sx-copy');
-  areaEl.innerHTML=h;
+  h+='<div class="field sx-inft"><label>تولد نوزاد</label><input class="inp ltr" id="sx-bd" placeholder="02JAN25"></div>';
+  h+='<div class="field sx-umnr"><label>توضیحات</label><input class="inp ltr" id="sx-txt" placeholder="SARA SADEGHI 0912..."></div></div>';
+  h+=outputBlock('sx-output','sx-copy');areaEl.innerHTML=h;
   function gv(id){var e=document.getElementById(id);return e?e.value.trim():'';}
-  function update(){
-    var t=gv('sx-type'),pax=P(gv('sx-pax'),'[مسافر]');
-    var out='';
-    if(t==='CHLD'){out='SSR:ALL CHLD HK1/P'+pax;}
-    else if(t==='INFT'){out='SSR: INFT HK1.'+P(gv('sx-last'),'[فامیل]')+'/'+P(gv('sx-first'),'[نام]')+' '+P(gv('sx-bd'),'[تولد]')+'/P'+pax;}
-    else if(t==='UMNR'){out='SSR:ALL UMNR HK1.'+P(gv('sx-txt'),'[توضیحات]')+'/P'+pax;}
-    else{out='SSR:ALL '+t+' HK1/P'+pax;}
-    document.getElementById('sx-output').textContent=out;
-    document.querySelectorAll('.sx-inft').forEach(function(f){f.style.display=(t==='INFT')?'flex':'none';});
-    document.querySelectorAll('.sx-umnr').forEach(function(f){f.style.display=(t==='UMNR')?'flex':'none';});
-  }
+  function update(){var t=gv('sx-type'),pax=P(gv('sx-pax'),'[مسافر]');var out='';
+   if(t==='CHLD'){out='SSR:ALL CHLD HK1/P'+pax;}else if(t==='INFT'){out='SSR: INFT HK1.'+P(gv('sx-last'),'[فامیل]')+'/'+P(gv('sx-first'),'[نام]')+' '+P(gv('sx-bd'),'[تولد]')+'/P'+pax;}
+   else if(t==='UMNR'){out='SSR:ALL UMNR HK1.'+P(gv('sx-txt'),'[توضیحات]')+'/P'+pax;}else{out='SSR:ALL '+t+' HK1/P'+pax;}
+   document.getElementById('sx-output').textContent=out;
+   document.querySelectorAll('.sx-inft').forEach(function(f){f.style.display=(t==='INFT')?'flex':'none';});
+   document.querySelectorAll('.sx-umnr').forEach(function(f){f.style.display=(t==='UMNR')?'flex':'none';});}
   areaEl.querySelectorAll('.inp').forEach(function(i){i.addEventListener('input',update);});
-  document.getElementById('sx-type').addEventListener('change',update);
-  wireCopy('sx-copy','sx-output');
-  update();
+  document.getElementById('sx-type').addEventListener('change',update);wireCopy('sx-copy','sx-output');update();
 }
 
-/* ---------- Sidebar ---------- */
-function findSpec(data,id){
-  for(var i=0;i<data.length;i++){
-    for(var j=0;j<data[i].items.length;j++){
-      if(data[i].items[j].id===id)return data[i].items[j];
-    }
-  }
-  return null;
-}
+/* ================= SIDEBAR & SELECTION ================= */
+function findSpec(data,id){for(var i=0;i<data.length;i++){for(var j=0;j<data[i].items.length;j++){if(data[i].items[j].id===id)return data[i].items[j];}}return null;}
+function clearTermActive(){document.getElementById('sideTerm').querySelectorAll('.side-item').forEach(function(b){b.classList.remove('active');});}
 function buildTermSidebar(){
-  var c=document.getElementById('sideTerm');
-  var h='<div class="side-cat"><div class="side-cat-name">🧭 راهنمای گام‌به‌گام (ویزارد)</div>';
-  WIZARDS.forEach(function(w){
-    h+='<button class="side-item wiz" data-wiz="'+w.id+'" data-search="'+esc((w.title+' '+w.desc).toLowerCase())+'"><span class="si-cmd">'+w.icon+'</span><span class="si-title">'+esc(w.title)+'</span></button>';
-  });
+  var c=document.getElementById('sideTerm');var h='';
+  h+='<div class="side-cat"><div class="side-cat-name">🧭 راهنمای گام‌به‌گام (ویزارد)</div>';
+  WIZARDS.forEach(function(w){h+='<button class="side-item wiz" data-wiz="'+w.id+'" data-search="'+esc((w.title+' '+w.desc).toLowerCase())+'"><span class="si-cmd">'+w.icon+'</span><span class="si-title">'+esc(w.title)+'</span></button>';});
+  h+='</div><div class="side-cat"><div class="side-cat-name">📖 خواندن خروجی ترمینال</div>';
+  GUIDES.forEach(function(g){h+='<button class="side-item guide" data-guide="'+g.id+'" data-search="'+esc((g.title+' '+g.intro).toLowerCase())+'"><span class="si-cmd">'+g.icon+'</span><span class="si-title">'+esc(g.title)+'</span></button>';});
   h+='</div>';
-  TERMINAL.forEach(function(cat){
-    h+='<div class="side-cat" data-cat="'+esc(cat.name)+'"><div class="side-cat-name">'+cat.icon+' '+esc(cat.name)+'</div>';
-    cat.items.forEach(function(s){
-      h+='<button class="side-item" data-id="'+s.id+'" data-search="'+esc((s.title+' '+s.cmdLabel+' '+s.desc).toLowerCase())+'"><span class="si-cmd">'+esc(s.cmdLabel)+'</span><span class="si-title">'+esc(s.title)+'</span></button>';
-    });
-    h+='</div>';
-  });
+  TERMINAL.forEach(function(cat){h+='<div class="side-cat"><div class="side-cat-name">'+cat.icon+' '+esc(cat.name)+'</div>';
+   cat.items.forEach(function(s){h+='<button class="side-item" data-id="'+s.id+'" data-search="'+esc((s.title+' '+s.cmdLabel+' '+s.desc).toLowerCase())+'"><span class="si-cmd">'+esc(s.cmdLabel)+'</span><span class="si-title">'+esc(s.title)+'</span></button>';});
+   h+='</div>';});
   c.innerHTML=h;
   c.querySelectorAll('.side-item[data-wiz]').forEach(function(b){b.addEventListener('click',function(){selectWizard(b.getAttribute('data-wiz'));});});
+  c.querySelectorAll('.side-item[data-guide]').forEach(function(b){b.addEventListener('click',function(){selectGuide(b.getAttribute('data-guide'));});});
   c.querySelectorAll('.side-item[data-id]').forEach(function(b){b.addEventListener('click',function(){selectItem('term',b.getAttribute('data-id'));});});
 }
-function buildApiSidebar(){
-  var c=document.getElementById('sideApi');
-  var h='';
-  API.forEach(function(cat){
-    h+='<div class="side-cat"><div class="side-cat-name">'+cat.icon+' '+esc(cat.name)+'</div>';
-    cat.items.forEach(function(s){
-      h+='<button class="side-item" data-id="'+s.id+'" data-search="'+esc((s.title+' '+s.cmdLabel+' '+s.desc).toLowerCase())+'"><span class="si-cmd">'+esc(s.cmdLabel)+'</span><span class="si-title">'+esc(s.title)+'</span></button>';
-    });
-    h+='</div>';
-  });
-  c.innerHTML=h;
-  c.querySelectorAll('.side-item').forEach(function(b){b.addEventListener('click',function(){selectItem('api',b.getAttribute('data-id'));});});
-}
-function clearTermActive(){
-  document.getElementById('sideTerm').querySelectorAll('.side-item').forEach(function(b){b.classList.remove('active');});
-}
-
-/* ---------- Normal command selection ---------- */
 function selectItem(view,id){
-  var data=(view==='term')?TERMINAL:API;
-  var area=document.getElementById(view==='term'?'areaTerm':'areaApi');
-  var spec=findSpec(data,id);
-  if(!spec)return;
+  var data=(view==='term')?TERMINAL:API;var area=document.getElementById(view==='term'?'areaTerm':'areaApi');
+  var spec=findSpec(data,id);if(!spec)return;
   if(view==='term'){clearTermActive();}
   var side=document.getElementById(view==='term'?'sideTerm':'sideApi');
   side.querySelectorAll('.side-item[data-id]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-id')===id);});
   renderSpec(spec,area);
-  if(window.innerWidth<960){area.scrollIntoView({behavior:'smooth',block:'start'});}
+  if(window.innerWidth<960){area.scrollIntoView({behavior:'smooth'});}
 }
 
-/* ---------- Wizard selection & rendering ---------- */
+/* ================= WIZARD ================= */
 var currentWiz=null,wizStep=0,wizMode=0;
-function getWizSteps(w){
-  if(w.modes){
-    return w.modes[wizMode].steps.map(function(r){return mk(r);});
-  }
-  return w.steps;
-}
-function selectWizard(id){
-  for(var i=0;i<WIZARDS.length;i++){
-    if(WIZARDS[i].id===id){currentWiz=WIZARDS[i];break;}
-  }
-  if(!currentWiz)return;
-  wizStep=0;wizMode=0;
-  clearTermActive();
-  var b=document.querySelector('.side-item[data-wiz="'+id+'"]');
-  if(b)b.classList.add('active');
-  renderWizard();
-  if(window.innerWidth<960){document.getElementById('areaTerm').scrollIntoView({behavior:'smooth'});}
-}
+function getWizSteps(w){if(w.modes){return w.modes[wizMode].steps.map(function(r){return mk(r);});}return w.steps;}
+function selectWizard(id){for(var i=0;i<WIZARDS.length;i++){if(WIZARDS[i].id===id){currentWiz=WIZARDS[i];break;}}
+ if(!currentWiz)return;wizStep=0;wizMode=0;clearTermActive();
+ var b=document.querySelector('.side-item[data-wiz="'+id+'"]');if(b)b.classList.add('active');
+ renderWizard();if(window.innerWidth<960){document.getElementById('areaTerm').scrollIntoView({behavior:'smooth'});}}
 function renderWizard(){
-  var w=currentWiz;
-  var area=document.getElementById('areaTerm');
-  var steps=getWizSteps(w);
+  var w=currentWiz;var area=document.getElementById('areaTerm');var steps=getWizSteps(w);
   if(wizStep>=steps.length)wizStep=steps.length-1;
   var pct=Math.round(((wizStep+1)/steps.length)*100);
-  var h='<div class="wiz-header">';
-  h+='<div class="wiz-title">'+w.icon+' '+esc(w.title)+'</div>';
-  h+='<div class="wiz-desc">'+esc(w.desc)+'</div>';
-  if(w.modes){
-    h+='<div class="wiz-modes">';
-    w.modes.forEach(function(m,idx){
-      h+='<button class="mode-chip'+(idx===wizMode?' active':'')+'" data-mode="'+idx+'">'+esc(m.label)+'</button>';
-    });
-    h+='</div>';
-  }
-  h+='<div class="wiz-progress"><div class="wiz-bar"><div class="wiz-fill" style="width:'+pct+'%"></div></div><span class="wiz-step-label">مرحله '+ (wizStep+1) +' از '+ steps.length +'</span></div>';
-  h+='</div>';
-  h+='<div class="wiz-steps-nav">';
-  steps.forEach(function(s,idx){
-    var cls='step-dot'+(idx===wizStep?' active':'')+(idx<wizStep?' done':'');
-    h+='<button class="'+cls+'" data-step="'+idx+'" title="'+esc(s.t)+'">'+(idx<wizStep?'✓':(idx+1))+'</button>';
-  });
-  h+='</div>';
-  h+='<div id="wizStepContent"></div>';
-  h+='<div class="wiz-nav">';
-  h+='<button class="btn-nav btn-prev" id="wizPrev">→ مرحله قبل</button>';
-  if(wizStep<steps.length-1){h+='<button class="btn-nav btn-next" id="wizNext">مرحله بعد ←</button>';}
-  else{h+='<button class="btn-nav btn-next" disabled>✅ پایان مراحل</button>';}
-  h+='</div>';
-  area.innerHTML=h;
-  renderWizStep(steps);
-  area.querySelectorAll('.mode-chip').forEach(function(b){
-    b.addEventListener('click',function(){wizMode=parseInt(this.getAttribute('data-mode'),10);wizStep=0;renderWizard();});
-  });
-  area.querySelectorAll('.step-dot').forEach(function(b){
-    b.addEventListener('click',function(){wizStep=parseInt(this.getAttribute('data-step'),10);renderWizard();});
-  });
-  var prev=document.getElementById('wizPrev');
-  if(prev){prev.addEventListener('click',function(){if(wizStep>0){wizStep--;renderWizard();}});}
-  var next=document.getElementById('wizNext');
-  if(next){next.addEventListener('click',function(){if(wizStep<steps.length-1){wizStep++;renderWizard();}});}
+  var h='<div class="wiz-header"><div class="wiz-title">'+w.icon+' '+esc(w.title)+'</div><div class="wiz-desc">'+esc(w.desc)+'</div>';
+  if(w.modes){h+='<div class="wiz-modes">';w.modes.forEach(function(m,idx){h+='<button class="mode-chip'+(idx===wizMode?' active':'')+'" data-mode="'+idx+'">'+esc(m.label)+'</button>';});h+='</div>';}
+  h+='<div class="wiz-progress"><div class="wiz-bar"><div class="wiz-fill" style="width:'+pct+'%"></div></div><span class="wiz-step-label">مرحله '+(wizStep+1)+' از '+steps.length+'</span></div></div>';
+  h+='<div class="wiz-steps-nav">';steps.forEach(function(s,idx){var cls='step-dot'+(idx===wizStep?' active':'')+(idx<wizStep?' done':'');h+='<button class="'+cls+'" data-step="'+idx+'" title="'+esc(s.t)+'">'+(idx<wizStep?'✓':(idx+1))+'</button>';});h+='</div>';
+  h+='<div id="wizStepContent"></div><div class="wiz-nav"><button class="btn-nav btn-prev" id="wizPrev">→ مرحله قبل</button>';
+  if(wizStep<steps.length-1){h+='<button class="btn-nav btn-next" id="wizNext">مرحله بعد ←</button>';}else{h+='<button class="btn-nav btn-next" disabled>✅ پایان مراحل</button>';}
+  h+='</div>';area.innerHTML=h;renderWizStep(steps);
+  area.querySelectorAll('.mode-chip').forEach(function(b){b.addEventListener('click',function(){wizMode=parseInt(this.getAttribute('data-mode'),10);wizStep=0;renderWizard();});});
+  area.querySelectorAll('.step-dot').forEach(function(b){b.addEventListener('click',function(){wizStep=parseInt(this.getAttribute('data-step'),10);renderWizard();});});
+  var prev=document.getElementById('wizPrev');if(prev){prev.addEventListener('click',function(){if(wizStep>0){wizStep--;renderWizard();}});}
+  var next=document.getElementById('wizNext');if(next){next.addEventListener('click',function(){if(wizStep<steps.length-1){wizStep++;renderWizard();}});}
 }
 function renderWizStep(steps){
-  var step=steps[wizStep];
-  var el=document.getElementById('wizStepContent');
-  var h='<div class="wiz-step-card">';
-  h+='<div class="wiz-step-num">'+(wizStep+1)+'</div>';
-  h+='<div class="wiz-step-body">';
-  h+='<div class="wiz-step-title">'+esc(step.t)+'</div>';
-  h+='<div class="wiz-step-desc">'+esc(step.d||'')+'</div>';
-  h+='<div class="wiz-spec-area"></div>';
-  h+='</div></div>';
-  el.innerHTML=h;
-  var specArea=el.querySelector('.wiz-spec-area');
+  var step=steps[wizStep];var el=document.getElementById('wizStepContent');
+  var h='<div class="wiz-step-card"><div class="wiz-step-num">'+(wizStep+1)+'</div><div class="wiz-step-body"><div class="wiz-step-title">'+esc(step.t)+'</div><div class="wiz-step-desc">'+esc(step.d||'')+'</div><div class="wiz-spec-area"></div></div></div>';
+  el.innerHTML=h;var specArea=el.querySelector('.wiz-spec-area');
   if(step.custom==='docs'){renderDocsBuilder(specArea);}
   else if(step.custom==='ssrextra'){renderSsrExtraBuilder(specArea);}
-  else if(step.spec){renderSpec(step.spec,specArea,{noHeader:true});}
-  else if(step.ref){
-    var sp=findSpec(TERMINAL,step.ref);
-    if(sp)renderSpec(sp,specArea,{noHeader:true});
-  }
+  else if(step.ref){var sp=findSpec(TERMINAL,step.ref);if(sp)renderSpec(sp,specArea,{noHeader:true});}
 }
 
-/* ---------- View & search ---------- */
+/* ================= VIEW & API ================= */
 function switchView(view){
   document.getElementById('viewTerm').classList.toggle('active',view==='term');
   document.getElementById('viewApi').classList.toggle('active',view==='api');
   document.getElementById('tabTerm').classList.toggle('active',view==='term');
   document.getElementById('tabApi').classList.toggle('active',view==='api');
 }
-function filterSide(view,q){
-  q=q.trim().toLowerCase();
-  var side=document.getElementById(view==='term'?'sideTerm':'sideApi');
-  side.querySelectorAll('.side-item').forEach(function(b){
-    var s=b.getAttribute('data-search')||'';
-    b.style.display=(!q||s.indexOf(q)>=0)?'flex':'none';
-  });
-  side.querySelectorAll('.side-cat').forEach(function(cat){
-    var any=false;
-    cat.querySelectorAll('.side-item').forEach(function(b){if(b.style.display!=='none')any=true;});
-    cat.style.display=any?'block':'none';
-  });
-}
+function filterSide(view,q){q=q.trim().toLowerCase();var side=document.getElementById(view==='term'?'sideTerm':'sideApi');
+ side.querySelectorAll('.side-item').forEach(function(b){var s=b.getAttribute('data-search')||'';b.style.display=(!q||s.indexOf(q)>=0)?'flex':'none';});
+ side.querySelectorAll('.side-cat').forEach(function(cat){var any=false;cat.querySelectorAll('.side-item').forEach(function(b){if(b.style.display!=='none')any=true;});cat.style.display=any?'block':'none';});}
 
-/* ---------- API DATA (unchanged) ---------- */
+var WS1={EP:'https://restapi.iaa.ir/ws1',FP:'https://api.flypersiaairlines.ir/ws1',HH:'https://api.taban.aero/ws1',IV:'https://api.caspianairlines.com/ws1',I3:'https://api.ataair.ir/ws1',IRZ:'https://api.sahaair.com/ws1',J1:'https://apps.merajairlines.ir/ws1',NV:'https://api.karunair.ir/ws1',PA:'https://api.parsair.ir/ws1',PY:'https://api.pouyaair.com/ws1',QB:'https://api.qeshm-air.com/ws1',VR:'https://api.vareshair.ir/ws1',Y9:'https://api.kishairlines.ir/ws1',ZV:'https://api.zagrosairlines.com/ws1',A1:'http://a1.nirasoft.ir/ws1',DZD:'https://api.yazdairways.com/ws1',IRU:'https://api.chabaharairlines.ir/ws1',A7:'https://api.asajet.ir/ws1',RAI:'https://api.raimonairways.com/ws1',ATS:'https://api.atlasairplus.com/ws1',TKN:'https://api.flykishiran.com/ws1',NSN:'https://api.nasimairlines.ir/ws1',ISP:'https://nrs.jskyair.com/ws1',MEH:'https://api.mehrairways.com/ws1',MBL:'https://nrs.ladairways.ir/ws1',SHR:'https://nrs.soroushair.com/ws1'};
+var WS2={EP:'https://restapi.iaa.ir/ws2/cgi-bin/NRSWeb.cgi',FP:'https://api.flypersiaairlines.ir/ws2/cgi-bin/NRSWEB.cgi',HH:'https://api.taban.aero/ws2/cgi-bin/NRSWebWS.cgi',IV:'https://api.caspianairlines.com/ws2/cgi-bin/NRSWeb.cgi',I3:'https://api.ataair.ir/ws2/cgi-bin/NRSWeb.cgi',IRZ:'https://api.sahaair.com/ws2/cgi-bin/NRSWeb.cgi',J1:'https://apps.merajairlines.ir/ws2/cgi-bin/NRSWeb.cgi',NV:'https://api.karunair.ir/ws2/cgi-bin/NRSWEB.cgi',PA:'https://api.parsair.ir/ws2/cgi-bin/NRSWeb.cgi',PY:'https://api.pouyaair.com/ws2/cgi-bin/NRSWEB.cgi',QB:'https://api.qeshm-air.com/ws2/cgi-bin/NRSWeb.cgi',VR:'https://api.vareshair.ir/ws2/cgi-bin/NRSWebWS.cgi',Y9:'https://api.kishairlines.ir/ws2/cgi-bin/NRSWEB.cgi',ZV:'https://api.zagrosairlines.com/ws2/cgi-bin/NRSWeb.cgi',A1:'http://a1.nirasoft.ir/ws2/cgi-bin/NRSWeb.cgi',DZD:'https://api.yazdairways.com/ws2/cgi-bin/NRSWeb.cgi',IRU:'https://api.chabaharairlines.ir/ws2/cgi-bin/NRSWeb.cgi',A7:'https://api.asajet.ir/ws2/cgi-bin/NRSWeb.cgi',RAI:'https://api.raimonairways.com/ws2/cgi-bin/NRSWeb.cgi',ATS:'https://api.atlasairplus.com/ws2/cgi-bin/NRSWeb.cgi',TKN:'https://api.flykishiran.com/ws2/cgi-bin/NRSWeb.cgi',NSN:'https://api.nasimairlines.ir/ws2/cgi-bin/NRSWeb.cgi',ISP:'https://nrs.jskyair.com/ws2/cgi-bin/NRSWeb.cgi',MEH:'https://api.mehrairways.com/ws2/cgi-bin',LMB:'https://nrs.ladairways.ir/ws2/cgi-bin/NRSWeb.cgi',SHR:'https://nrs.soroushair.com/ws2/cgi-bin/NRSWeb.cgi'};
 var API=[
 {name:'جستجو و نرخ',icon:'🔍',items:[
  {id:'availability',title:'جستجوی پرواز',cmdLabel:'Availability',icon:'🔍',desc:'دریافت لیست پروازهای دارای ظرفیت فروش.',pattern:'GET {BaseURL}/AvailabilityJS.jsp?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS1)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'cbSource',label:'مبدا',ph:'THR',ltr:true},{k:'cbTarget',label:'مقصد',ph:'MHD',ltr:true},{k:'DepartureDate',label:'تاریخ',ph:'2023-11-22',ltr:true},{k:'cbAdultQty',label:'بزرگسال',ph:'1',ltr:true},{k:'cbChildQty',label:'کودک',ph:'0',ltr:true},{k:'cbInfantQty',label:'نوزاد',ph:'0',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS1[v.base]||'[BaseURL]');var q=[];['AirLine','cbSource','cbTarget','DepartureDate','cbAdultQty','cbChildQty','cbInfantQty','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/AvailabilityJS.jsp?'+q.join('&');},
-  examples:[],notes:[{t:'warn',x:'فقط برای مسیرهایی که ایرلاین پرواز دارد فراخوانی کنید.'}]},
- {id:'fare',title:'دریافت نرخ',cmdLabel:'FARE',icon:'🏷️',desc:'دریافت اطلاعات کامل نرخ و قوانین استرداد.',pattern:'GET {BaseURL}/FareJS.jsp?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS1)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'Route',label:'Route',ph:'UGT-TTQ',ltr:true},{k:'RBD',label:'RBD کلاس',ph:'Y',ltr:true},{k:'DepartureDate',label:'تاریخ',ph:'2023-07-31',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS1[v.base]||'[BaseURL]');var q=[];['AirLine','Route','RBD','DepartureDate','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/FareJS.jsp?'+q.join('&');},
-  examples:[],notes:[]}
-]},
-{name:'رزرو و صدور',icon:'🎫',items:[
- {id:'reserve',title:'رزرو جا (PNR)',cmdLabel:'Reserve',icon:'📝',desc:'ثبت رزرو و ایجاد PNR.',pattern:'POST {BaseURL}/ReservJS?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'PA',ltr:true},{k:'cbSource',label:'مبدا',ph:'UGT',ltr:true},{k:'cbTarget',label:'مقصد',ph:'TTQ',ltr:true},{k:'FlightClass',label:'FlightClass',ph:'Y',ltr:true},{k:'FlightNo',label:'FlightNo',ph:'1000',ltr:true},{k:'DepartureDate',label:'تاریخ',ph:'2023-08-01',ltr:true},{k:'No',label:'تعداد مسافر',ph:'1',ltr:true},{k:'edtName1',label:'نام مسافر ۱',ph:'TEST',ltr:true},{k:'edtLast1',label:'فامیل مسافر ۱',ph:'TEST',ltr:true},{k:'edtAge1',label:'سن مسافر ۱',ph:'30',ltr:true},{k:'edtID1',label:'کدملی/پاسپورت ۱',ph:'I__0890347451__28DEY73_F___',ltr:true},{k:'edtContact',label:'Contact',ph:'09123456789',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS2[v.base]||'[BaseURL]');var q=[];['AirLine','cbSource','cbTarget','FlightClass','FlightNo','DepartureDate','No','edtName1','edtLast1','edtAge1','edtID1','edtContact','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/ReservJS?'+q.join('&');},
-  examples:[],notes:[{t:'danger',x:'مسافر اول حتماً بزرگسال باشد. NationalId و تاریخ تولد الزامی است.'}]},
- {id:'etissue',title:'صدور بلیط الکترونیکی',cmdLabel:'ETIssue',icon:'🎫',desc:'صدور نهایی بلیط و دریافت شماره بلیط.',pattern:'GET {BaseURL}/ETIssueJS?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'PNR',label:'PNR',ph:'QJHGY',ltr:true},{k:'EMail',label:'Email',ph:'TEST@NIRASOFT.IR',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS2[v.base]||'[BaseURL]');var q=[];['AirLine','PNR','EMail','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/ETIssueJS?'+q.join('&');},
+  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS1)},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'cbSource',label:'مبدا',ph:'THR',ltr:true},{k:'cbTarget',label:'مقصد',ph:'MHD',ltr:true},{k:'DepartureDate',label:'تاریخ',ph:'2023-11-22',ltr:true},{k:'cbAdultQty',label:'بزرگسال',ph:'1',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
+  build:function(v){var b=WS1[v.base]||'[BaseURL]';var q=[];['AirLine','cbSource','cbTarget','DepartureDate','cbAdultQty','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/AvailabilityJS.jsp?'+q.join('&');},
+  examples:[],notes:[]},
+ {id:'etissue',title:'صدور بلیط الکترونیکی',cmdLabel:'ETIssue',icon:'🎫',desc:'صدور نهایی بلیط.',pattern:'GET {BaseURL}/ETIssueJS?...',
+  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'PNR',label:'PNR',ph:'QJHGY',ltr:true},{k:'EMail',label:'Email',ph:'TEST@NIRASOFT.IR',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
+  build:function(v){var b=WS2[v.base]||'[BaseURL]';var q=[];['AirLine','PNR','EMail','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/ETIssueJS?'+q.join('&');},
   examples:[],notes:[{t:'danger',x:'این متد بار مالی دارد.'}]}
 ]},
-{name:'استرداد و کنسلی',icon:'💸',items:[
- {id:'cancelpnr',title:'حذف رزرو (Cancel PNR)',cmdLabel:'CancelPNR',icon:'❌',desc:'حذف کامل رزرو و آزادسازی صندلی‌ها.',pattern:'GET {BaseURL}/CancelPNRJS?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'PNR',label:'PNR',ph:'QHGTA',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS2[v.base]||'[BaseURL]');var q=[];['AirLine','PNR','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/CancelPNRJS?'+q.join('&');},
-  examples:[],notes:[]},
- {id:'etrefund',title:'استرداد بلیط (Refund)',cmdLabel:'ETRefund',icon:'💸',desc:'ثبت نهایی استرداد و انجام تراکنش مالی.',pattern:'GET {BaseURL}/ETRefundJS?...',
-  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'override',label:'یا BaseURL دستی',ph:'https://...'},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'TicketNo',label:'شماره بلیط',ph:'2325803457187',ltr:true},{k:'Fare',label:'Fare',ph:'10563000',ltr:true},{k:'KU',label:'KU عوارض',ph:'1,057,000',ltr:true},{k:'LP',label:'LP',ph:'70000',ltr:true},{k:'Penalty',label:'Penalty',ph:'4225200',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
-  build:function(v){var b=v.override?v.override.replace(/\/+$/,''):(WS2[v.base]||'[BaseURL]');var q=[];['AirLine','TicketNo','Fare','KU','LP','Penalty','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/ETRefundJS?'+q.join('&');},
-  examples:[],notes:[{t:'danger',x:'فراخوانی این متد تراکنش مالی استرداد را انجام می‌دهد.'}]}
+{name:'استرداد',icon:'💸',items:[
+ {id:'etrefund',title:'استرداد بلیط (ETRefund)',cmdLabel:'ETRefund',icon:'💸',desc:'ثبت نهایی استرداد.',pattern:'GET {BaseURL}/ETRefundJS?...',
+  fields:[{k:'base',label:'ایرلاین',type:'select',opts:Object.keys(WS2)},{k:'AirLine',label:'AirLine',ph:'*',ltr:true},{k:'TicketNo',label:'شماره بلیط',ph:'2325803457187',ltr:true},{k:'Fare',label:'Fare',ph:'10563000',ltr:true},{k:'KU',label:'KU',ph:'1,057,000',ltr:true},{k:'LP',label:'LP',ph:'70000',ltr:true},{k:'Penalty',label:'Penalty',ph:'4225200',ltr:true},{k:'OfficeUser',label:'OfficeUser',ph:'***',ltr:true},{k:'OfficePass',label:'OfficePass',ph:'***',ltr:true}],
+  build:function(v){var b=WS2[v.base]||'[BaseURL]';var q=[];['AirLine','TicketNo','Fare','KU','LP','Penalty','OfficeUser','OfficePass'].forEach(function(k){if(v[k])q.push(k+'='+encodeURIComponent(v[k]));});return b+'/ETRefundJS?'+q.join('&');},
+  examples:[],notes:[]}
 ]}
 ];
+function buildApiSidebar(){var c=document.getElementById('sideApi');var h='';
+ API.forEach(function(cat){h+='<div class="side-cat"><div class="side-cat-name">'+cat.icon+' '+esc(cat.name)+'</div>';
+  cat.items.forEach(function(s){h+='<button class="side-item" data-id="'+s.id+'" data-search="'+esc((s.title+' '+s.cmdLabel).toLowerCase())+'"><span class="si-cmd">'+esc(s.cmdLabel)+'</span><span class="si-title">'+esc(s.title)+'</span></button>';});h+='</div>';});
+ c.innerHTML=h;c.querySelectorAll('.side-item').forEach(function(b){b.addEventListener('click',function(){selectItem('api',b.getAttribute('data-id'));});});}
 
-/* ---------- INIT ---------- */
 document.addEventListener('DOMContentLoaded',function(){
-  buildTermSidebar();
-  buildApiSidebar();
-  selectItem('term','ay');
-  selectItem('api','availability');
+  buildTermSidebar();buildApiSidebar();
+  selectItem('term','ay');selectItem('api','availability');
   document.getElementById('searchTerm').addEventListener('input',function(){filterSide('term',this.value);});
   document.getElementById('searchApi').addEventListener('input',function(){filterSide('api',this.value);});
 });
